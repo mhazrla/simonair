@@ -1,4 +1,9 @@
-const Navbar = () => {
+import { useState } from "react";
+import NavLink from "@/Components/NavLink";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import { Link } from "@inertiajs/react";
+
+const Navbar = ({ auth, error }) => {
     return (
         <div>
             <div className="drawer drawer-mobile">
@@ -33,11 +38,8 @@ const Navbar = () => {
                         <div className="flex-1"></div>
 
                         <div className="flex-none">
-                            <div className="dropdown dropdown-end">
-                                <label
-                                    tabIndex={0}
-                                    className="btn btn-ghost btn-circle"
-                                >
+                            <div className="dropdown dropdown-right dropdown-bottom">
+                                <button className="btn btn-ghost btn-circle">
                                     <div className="indicator">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +52,13 @@ const Navbar = () => {
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
                                                 strokeWidth="2"
-                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                                             />
                                         </svg>
-                                        <span className="badge badge-sm indicator-item">
-                                            8
-                                        </span>
+                                        <span className="badge badge-xs badge-primary indicator-item"></span>
                                     </div>
-                                </label>
+                                </button>
+
                                 <div
                                     tabIndex={0}
                                     className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
@@ -77,15 +78,28 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* User photo start*/}
                             <div className="dropdown dropdown-end">
-                                <label
-                                    tabIndex={0}
-                                    className="btn btn-ghost btn-circle avatar"
-                                >
-                                    <div className="w-10 rounded-full">
-                                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                    </div>
-                                </label>
+                                <span className="inline-flex rounded-md">
+                                    <button
+                                        type="button"
+                                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                    >
+                                        <label
+                                            tabIndex={0}
+                                            className="btn btn-ghost btn-circle avatar"
+                                        >
+                                            <div className="w-10 rounded-full">
+                                                <img src="https://lh3.googleusercontent.com/a/AGNmyxbF0y5fzHdmaCr2QSWl1K9vFgdiddWYy9qbxp7Yww=s288" />
+                                            </div>
+                                        </label>
+                                        <span className="hidden sm:block">
+                                            {auth.user.name}
+                                        </span>
+                                    </button>
+                                </span>
+
                                 <ul
                                     tabIndex={0}
                                     className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
@@ -104,9 +118,10 @@ const Navbar = () => {
                                     </li>
                                 </ul>
                             </div>
+                            {/* User photo end*/}
                         </div>
                     </div>
-                    Content
+                    <div className="p-16 bg-red-600">Contet</div>
                 </div>
 
                 <div className="drawer-side border-r">
@@ -119,14 +134,14 @@ const Navbar = () => {
                         <li>
                             <a
                                 href="https://flowbite.com/"
-                                class="flex items-center pl-2.5 mb-5"
+                                className="flex items-center pl-2.5 mb-5"
                             >
                                 <img
                                     src="https://flowbite.com/docs/images/logo.svg"
-                                    class="h-6 mr-3 sm:h-7"
+                                    className="h-6 mr-3 sm:h-7"
                                     alt="Flowbite Logo"
                                 />
-                                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
                                     SIMONAIR
                                 </span>
                             </a>
