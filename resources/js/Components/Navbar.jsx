@@ -35,10 +35,10 @@ const Navbar = ({ auth, error }) => {
                             </label>
                         </div>
 
-                        <div className="flex-1"></div>
+                        {/* <div className="flex-1"></div> */}
 
-                        <div className="flex-none">
-                            <div className="dropdown dropdown-right dropdown-bottom">
+                        <div className="flex-none ml-auto">
+                            <div className="dropdown dropdown dropdown-end">
                                 <button className="btn btn-ghost btn-circle">
                                     <div className="indicator">
                                         <svg

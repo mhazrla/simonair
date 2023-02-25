@@ -17,19 +17,11 @@ use Inertia\Inertia;
 |
 */
 
-Route::controller(DashboardController::class)->group(function () {
+Route::controller(DashboardController::class)->middleware('auth')->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard');
     Route::post('/orders', 'store');
 });
 
-// Route::get('/', function () {
-//     return Inertia::render(
-//         'Dashboard/Index',
-//         [
-//             'title' => 'Test'
-//         ]
-//     );
-// });
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
