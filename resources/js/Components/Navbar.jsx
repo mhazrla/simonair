@@ -3,7 +3,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 
-const Navbar = ({ auth, error }) => {
+const Navbar = ({ auth, child }) => {
     return (
         <div>
             <div className="drawer drawer-mobile">
@@ -12,8 +12,8 @@ const Navbar = ({ auth, error }) => {
                     type="checkbox"
                     className="drawer-toggle"
                 />
-                <div className="drawer-content flex flex-col drop-shadow-md shadow-lg">
-                    <div className="w-full navbar bg-white">
+                <div className="drawer-content flex flex-col drop-shadow-md shadow-lg ">
+                    <div className="w-full navbar bg-primary">
                         <div className="flex-none lg:hidden">
                             <label
                                 htmlFor="my-drawer-3"
@@ -35,10 +35,8 @@ const Navbar = ({ auth, error }) => {
                             </label>
                         </div>
 
-                        {/* <div className="flex-1"></div> */}
-
                         <div className="flex-none ml-auto">
-                            <div className="dropdown dropdown dropdown-end">
+                            <div className="dropdown dropdown-end">
                                 <button className="btn btn-ghost btn-circle">
                                     <div className="indicator">
                                         <svg
@@ -84,7 +82,7 @@ const Navbar = ({ auth, error }) => {
                                 <span className="inline-flex rounded-md">
                                     <button
                                         type="button"
-                                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500  hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                     >
                                         <label
                                             tabIndex={0}
@@ -94,7 +92,7 @@ const Navbar = ({ auth, error }) => {
                                                 <img src="https://lh3.googleusercontent.com/a/AGNmyxbF0y5fzHdmaCr2QSWl1K9vFgdiddWYy9qbxp7Yww=s288" />
                                             </div>
                                         </label>
-                                        <span className="hidden sm:block">
+                                        <span className="hidden sm:block mx-3">
                                             {auth.user.name}
                                         </span>
                                     </button>
@@ -121,27 +119,27 @@ const Navbar = ({ auth, error }) => {
                             {/* User photo end*/}
                         </div>
                     </div>
-                    <div className="p-16 bg-red-600">Contet</div>
+                    {child}
                 </div>
 
-                <div className="drawer-side border-r">
+                <div className="drawer-side border-r ">
                     <label
                         htmlFor="my-drawer-3"
                         className="drawer-overlay"
                     ></label>
 
-                    <ul className="menu p-4 w-80 bg-base-100">
+                    <ul className="menu p-4 w-80 bg-primary text-fontPrimary">
                         <li>
                             <a
                                 href="https://flowbite.com/"
-                                className="flex items-center pl-2.5 mb-5"
+                                className="flex justify-center pl-2.5 mb-5 "
                             >
                                 <img
                                     src="https://flowbite.com/docs/images/logo.svg"
-                                    className="h-6 mr-3 sm:h-7"
+                                    className="h-8 mr-3 "
                                     alt="Flowbite Logo"
                                 />
-                                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                                <span className="self-center text-2xl whitespace-nowrap font-bold tracking-wide">
                                     SIMONAIR
                                 </span>
                             </a>
@@ -163,7 +161,7 @@ const Navbar = ({ auth, error }) => {
                                         d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                                     />
                                 </svg>
-                                Dashboard
+                                <span className="ml-3">Dashboard</span>
                             </a>
                         </li>
 
@@ -188,7 +186,7 @@ const Navbar = ({ auth, error }) => {
                                     tabIndex={0}
                                     className="collapse collapse-arrow"
                                 >
-                                    <div className="collapse-title mr-28 ml-[-12px]">
+                                    <div className="collapse-title mr-28 ">
                                         Log Data
                                     </div>
                                     <div className="collapse-content">

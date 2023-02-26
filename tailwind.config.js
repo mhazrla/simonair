@@ -12,7 +12,17 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: [
+                    "Montserrat",
+                    "Lato",
+                    "Garamond",
+                    "Poppins",
+                    ...defaultTheme.fontFamily.sans,
+                ],
+            },
+            colors: {
+                primary: "#FBFDFF",
+                fontPrimary: "#494949",
             },
         },
     },
