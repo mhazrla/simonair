@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
     return (
-        <div>
+        <div className="relative ">
             {" "}
             <footer className="footer footer-center items-center p-4 bg-neutral text-neutral-content absolute inset-x-0 bottom-0">
                 <div className="items-center grid-flow-col ">

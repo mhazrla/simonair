@@ -19,4 +19,16 @@ class DashboardController extends Controller
             ]
         );
     }
+
+    public function show()
+    {
+        $tools = Dashboard::get();
+        return Inertia::render(
+            'Dashboard/Detail',
+            [
+                'title' => 'Ini Title',
+                'tools' => $tools
+            ]
+        );
+    }
 }
