@@ -19,6 +19,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "daisyui": "^2.51.0"
+        "daisyui": "^2.51.0",
+        "preline": "^1.7.0"
     }
 }

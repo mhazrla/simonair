@@ -49,8 +49,8 @@ const Tabs = ({ color }) => {
                             </a>
                         </li>
                     </ul>
-                    <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-                        <div className="px-4 py-5 flex-auto">
+                    <div className="relative flex flex-col min-w-0 break-words  w-full shadow-lg rounded">
+                        <div className="px-4 flex-auto">
                             <div className="tab-content tab-space">
                                 <div
                                     className={
@@ -61,7 +61,7 @@ const Tabs = ({ color }) => {
                                     <div class="container my-12 mx-auto px-4 md:px-12">
                                         <div class="flex flex-wrap -mx-1 lg:-mx-4">
                                             <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article class="overflow-hidden rounded-lg shadow-lg">
+                                                <article class="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title ">
                                                             pH
@@ -75,7 +75,7 @@ const Tabs = ({ color }) => {
                                                 </article>
                                             </div>
                                             <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article class="overflow-hidden rounded-lg shadow-lg">
+                                                <article class="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title ">
                                                             pH
@@ -89,7 +89,7 @@ const Tabs = ({ color }) => {
                                                 </article>
                                             </div>
                                             <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article class="overflow-hidden rounded-lg shadow-lg">
+                                                <article class="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title ">
                                                             pH
@@ -103,7 +103,7 @@ const Tabs = ({ color }) => {
                                                 </article>
                                             </div>
                                             <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article class="overflow-hidden rounded-lg shadow-lg">
+                                                <article class="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title ">
                                                             pH
@@ -117,7 +117,7 @@ const Tabs = ({ color }) => {
                                                 </article>
                                             </div>
                                             <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article class="overflow-hidden rounded-lg shadow-lg">
+                                                <article class="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title ">
                                                             pH
@@ -214,7 +214,7 @@ const Tabs = ({ color }) => {
 export default function TabsRender() {
     return (
         <>
-            <Tabs color="red" />;
+            <Tabs color="red" />
         </>
     );
 }

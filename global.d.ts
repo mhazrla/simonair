@@ -1,1 +1,2 @@
-import "flowbite/plugin"
+import "flowbite/plugin";
+import "preline/plugin";
