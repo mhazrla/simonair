@@ -19,6 +19,7 @@ use Inertia\Inertia;
 
 Route::controller(DashboardController::class)->middleware('auth')->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard');
+    Route::post('/store', 'store')->name('dashboard.store');
     Route::get('/detail', 'show')->name('detail');
     Route::post('/orders', 'store');
 });

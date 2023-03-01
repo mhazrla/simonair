@@ -1,10 +1,47 @@
-import React from "react";
-import { Link, Head } from "@inertiajs/react";
+import React, { useState } from "react";
+import { Link, Head, router } from "@inertiajs/react";
+
 import Navbar from "@/Components/Navbar";
 import DefaultLayout from "@/Layouts/DefaultLayout";
 import Footer from "@/Components/Footer";
 
 export default function Index(props) {
+    const [values, setValues] = useState({
+        nama_alat: "",
+    });
+
+    const errors = props.errors;
+
+    const handleChange = (e) => {
+        const key = e.target.id;
+        const value = e.target.value;
+        setValues((values) => ({
+            ...values,
+            [key]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(values);
+
+        const formData = new FormData();
+
+        for (let key in values) {
+            formData.append(key, values[key]);
+        }
+
+        router.post(route("dashboard.store"), formData, {
+            forceFormData: true,
+            onSuccess: () => {
+                swal("Good Job!", "New Article has been added", "success");
+            },
+            onError: (errors) => {
+                swal("Kamu gagal kewren", "Article gagal diaplot", "error");
+            },
+        });
+    };
+
     return (
         <DefaultLayout
             auth={props.auth}
@@ -13,6 +50,48 @@ export default function Index(props) {
         >
             <div className="py-12 ">
                 <div className="max-w-full mx-auto sm:px-6 lg:px-8 ">
+                    <form
+                        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+                        onSubmit={handleSubmit}
+                        action="post"
+                        encType="multipart/form-data"
+                    >
+                        <div className="form-control">
+                            <div className="input-group">
+                                <input
+                                    type="text"
+                                    placeholder="Search…"
+                                    className="input input-bordered"
+                                    id="nama_alat"
+                                    name="nama_alat"
+                                    onChange={handleChange}
+                                    value={values.title}
+                                />
+                                {errors.nama_alat && (
+                                    <div className="text-sm text-red-600">
+                                        {errors.nama_alat}
+                                    </div>
+                                )}
+
+                                <button className="btn btn-square">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-6 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6  text-fontPrimary text-xl font-bold">
                             List Aquarium
