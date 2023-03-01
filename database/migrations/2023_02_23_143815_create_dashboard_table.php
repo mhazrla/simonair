@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('dashboard', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_alat');
             $table->char('alatId', 12)->unique();
             $table->float('ph', 2, 2);
             $table->float('suhu', 2, 2);

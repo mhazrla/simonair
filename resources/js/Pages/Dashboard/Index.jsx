@@ -4,8 +4,10 @@ import { Link, Head, router } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 import DefaultLayout from "@/Layouts/DefaultLayout";
 import Footer from "@/Components/Footer";
+import swal from "sweetalert";
 
 export default function Index(props) {
+    console.log(props);
     const [values, setValues] = useState({
         nama_alat: "",
     });

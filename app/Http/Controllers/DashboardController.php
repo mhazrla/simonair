@@ -31,4 +31,12 @@ class DashboardController extends Controller
             ]
         );
     }
+
+    public function store(Request $request)
+    {
+
+        $validatedData = $request->validated();
+        $request->create($validatedData);
+        return to_route('dashboard')->with('message', 'Alat Berhasil Ditambahkan');
+    }
 }

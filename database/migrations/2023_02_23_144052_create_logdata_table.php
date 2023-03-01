@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('logdata', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_alat');
             $table->char('alatId', 12);
             $table->foreign('alatId')->references('alatId')->on('dashboard');
             $table->float('ph', 2, 2);
