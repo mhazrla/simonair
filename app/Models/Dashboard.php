@@ -9,5 +9,5 @@ class Dashboard extends Model
 {
     use HasFactory;
     protected $table = 'dashboard';
-    protected $fillable = ['alatId', 'ph', 'suhu', 'amonia', 'tss', 'tds', 'salinitas'];
+    protected $fillable = ['id_alat', 'nama_alat', 'ph', 'suhu', 'amonia', 'tss', 'tds', 'salinitas'];
 }

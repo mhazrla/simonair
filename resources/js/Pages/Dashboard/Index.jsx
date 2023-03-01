@@ -36,10 +36,14 @@ export default function Index(props) {
         router.post(route("dashboard.store"), formData, {
             forceFormData: true,
             onSuccess: () => {
-                swal("Good Job!", "New Article has been added", "success");
+                swal("Good Job!", "Alat baru berhasil ditambahkan", "success");
             },
             onError: (errors) => {
-                swal("Kamu gagal kewren", "Article gagal diaplot", "error");
+                swal(
+                    "Kamu gagal kewren",
+                    "Alat baru gagal ditambahkan",
+                    "error"
+                );
             },
         });
     };
