@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('logdata', function (Blueprint $table) {
             $table->id();
-            $table->char('alatId', 12);
-            $table->foreign('alatId')->references('alatId')->on('dashboard');
-            $table->float('ph', 2, 2);
-            $table->float('suhu', 2, 2);
-            $table->float('amonia', 2, 2);
-            $table->float('tds', 2, 2);
-            $table->float('tss', 2, 2);
-            $table->float('salinitas', 2, 2);
+            $table->string('nama_alat');
+            $table->char('id_alat', 12);
+            $table->foreign('id_alat')->references('id_alat')->on('dashboard');
+            $table->float('ph', 2, 2)->default(0);
+            $table->float('suhu', 2, 2)->default(0);
+            $table->float('amonia', 2, 2)->default(0);
+            $table->float('tds', 2, 2)->default(0);
+            $table->float('tss', 2, 2)->default(0);
+            $table->float('salinitas', 2, 2)->default(0);
             $table->timestamps();
         });
     }

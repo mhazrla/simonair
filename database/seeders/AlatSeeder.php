@@ -16,7 +16,8 @@ class AlatSeeder extends Seeder
     {
 
         DB::table('dashboard')->insert([
-            'alatId' => Str::random(10),
+            'nama_alat' => Str::random(5),
+            'id_alat' => Str::random(10),
             'ph' => fake()->randomFloat(2, 0, 1),
             'suhu' => fake()->randomFloat(2, 0, 1),
             'amonia' => fake()->randomFloat(2, 0, 1),

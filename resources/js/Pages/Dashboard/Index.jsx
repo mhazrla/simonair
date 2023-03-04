@@ -4,8 +4,10 @@ import { Link, Head, router } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 import DefaultLayout from "@/Layouts/DefaultLayout";
 import Footer from "@/Components/Footer";
+import swal from "sweetalert";
 
 export default function Index(props) {
+    console.log(props);
     const [values, setValues] = useState({
         nama_alat: "",
     });
@@ -37,7 +39,15 @@ export default function Index(props) {
                 swal("Good Job!", "Alat baru berhasil ditambahkan", "success");
             },
             onError: (errors) => {
+<<<<<<< HEAD
                 swal("Failed!", "Alat gagal ditambahkan", "error");
+=======
+                swal(
+                    "Kamu gagal kewren",
+                    "Alat baru gagal ditambahkan",
+                    "error"
+                );
+>>>>>>> 85a48ff35dc3e7bbedd80e0ff52c719ddc3d37b2
             },
         });
     };

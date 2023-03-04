@@ -21,7 +21,11 @@
     "dependencies": {
         "daisyui": "^2.51.0",
         "preline": "^1.7.0",
+<<<<<<< HEAD
         "react-d3-speedometer": "^1.1.0",
         "recharts": "^2.4.3"
+=======
+        "sweetalert": "^2.1.2"
+>>>>>>> 85a48ff35dc3e7bbedd80e0ff52c719ddc3d37b2
     }
 }
