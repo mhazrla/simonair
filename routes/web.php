@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LogdataController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,10 @@ Route::controller(DashboardController::class)->middleware('auth')->group(functio
     Route::post('/store', 'store')->name('dashboard.store');
     Route::get('/detail', 'show')->name('detail');
     Route::post('/orders', 'store');
+});
+
+Route::controller(LogdataController::class)->middleware('auth')->group(function () {
+    Route::get('/log/{logdata}', 'show')->name('log');
 });
 
 
