@@ -11,24 +11,24 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $tools = Dashboard::get();
+        $alats = Dashboard::get();
         return Inertia::render(
             'Dashboard/Index',
             [
                 'title' => 'Dashboard',
-                'tools' => $tools
+                'alats' => $alats
             ]
         );
     }
 
-    public function show()
+    public function show($id)
     {
-        $tools = Dashboard::get();
+        $sensors = Dashboard::where('id_alat', $id)->get();
         return Inertia::render(
             'Dashboard/Detail',
             [
-                'title' => 'Ini Title',
-                'tools' => $tools
+                'title' => 'Detail',
+                'sensors' => $sensors
             ]
         );
     }

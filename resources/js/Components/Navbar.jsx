@@ -4,7 +4,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import Sidebar from "./Sidebar";
 
-const Navbar = ({ auth, child }) => {
+const Navbar = ({ auth, child, alats }) => {
     return (
         <div>
             <div className="drawer drawer-mobile">
@@ -125,7 +125,7 @@ const Navbar = ({ auth, child }) => {
                     {child}
                 </div>
 
-                <Sidebar />
+                <Sidebar alats={alats} />
             </div>
         </div>
     );

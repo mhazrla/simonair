@@ -57,7 +57,7 @@ const data = [
     },
 ];
 
-const Tabs = ({ color }) => {
+const Tabs = ({ color, sensors }) => {
     const [openTab, setOpenTab] = React.useState(1);
     return (
         <>
@@ -125,121 +125,117 @@ const Tabs = ({ color }) => {
                                                         </h2>
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
-                                                                value={5}
+                                                                value={
+                                                                    sensors[0]
+                                                                        .ph
+                                                                }
                                                                 min={0}
-                                                                max={30}
+                                                                max={1}
                                                             />
                                                         </div>
                                                     </div>
                                                 </article>
                                             </div>
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title ">
-                                                            pH
-                                                        </h2>
-                                                        <img
-                                                            alt="Placeholder"
-                                                            className="block h-auto w-full rounded-lg my-4"
-                                                            src="https://picsum.photos/600/400/?random"
-                                                        />
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title ">
-                                                            pH
-                                                        </h2>
-                                                        <img
-                                                            alt="Placeholder"
-                                                            className="block h-auto w-full rounded-lg my-4"
-                                                            src="https://picsum.photos/600/400/?random"
-                                                        />
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title ">
-                                                            pH
-                                                        </h2>
-                                                        <img
-                                                            alt="Placeholder"
-                                                            className="block h-auto w-full rounded-lg my-4"
-                                                            src="https://picsum.photos/600/400/?random"
-                                                        />
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title ">
-                                                            pH
-                                                        </h2>
-                                                        <img
-                                                            alt="Placeholder"
-                                                            className="block h-auto w-full rounded-lg my-4"
-                                                            src="https://picsum.photos/600/400/?random"
-                                                        />
-                                                    </div>
-                                                </article>
-                                            </div>
 
-                                            {/* <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                                                <article className="overflow-hidden rounded-lg shadow-lg">
-                                                    <a href="#">
-                                                        <img
-                                                            alt="Placeholder"
-                                                            className="block h-auto w-full"
-                                                            src="https://picsum.photos/600/400/?random"
-                                                        />
-                                                    </a>
-
-                                                    <header className="flex items-center justify-between leading-tight p-2 md:p-4">
-                                                        <h1 className="text-lg">
-                                                            <a
-                                                                className="no-underline hover:underline text-black"
-                                                                href="#"
-                                                            >
-                                                                Article Title
-                                                            </a>
-                                                        </h1>
-                                                        <p className="text-grey-darker text-sm">
-                                                            11/1/19
-                                                        </p>
-                                                    </header>
-
-                                                    <footer className="flex items-center justify-between leading-none p-2 md:p-4">
-                                                        <a
-                                                            className="flex items-center no-underline hover:underline text-black"
-                                                            href="#"
-                                                        >
-                                                            <img
-                                                                alt="Placeholder"
-                                                                className="block rounded-full"
-                                                                src="https://picsum.photos/32/32/?random"
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            Suhu
+                                                        </h2>
+                                                        <div className="mt-6 -my-10">
+                                                            <Gauge
+                                                                value={
+                                                                    sensors[0]
+                                                                        .suhu
+                                                                }
+                                                                min={0}
+                                                                max={1}
                                                             />
-                                                            <p className="ml-2 text-sm">
-                                                                Author Name
-                                                            </p>
-                                                        </a>
-                                                        <a
-                                                            className="no-underline text-grey-darker hover:text-red-dark"
-                                                            href="#"
-                                                        >
-                                                            <span className="hidden">
-                                                                Like
-                                                            </span>
-                                                            <i className="fa fa-heart"></i>
-                                                        </a>
-                                                    </footer>
+                                                        </div>
+                                                    </div>
                                                 </article>
-                                            </div> */}
+                                            </div>
+
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            Amonia
+                                                        </h2>
+                                                        <div className="mt-6 -my-10">
+                                                            <Gauge
+                                                                value={
+                                                                    sensors[0]
+                                                                        .amonia
+                                                                }
+                                                                min={0}
+                                                                max={1}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            tss
+                                                        </h2>
+                                                        <div className="mt-6 -my-10">
+                                                            <Gauge
+                                                                value={
+                                                                    sensors[0]
+                                                                        .tss
+                                                                }
+                                                                min={0}
+                                                                max={1}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            TDS
+                                                        </h2>
+                                                        <div className="mt-6 -my-10">
+                                                            <Gauge
+                                                                value={
+                                                                    sensors[0]
+                                                                        .tds
+                                                                }
+                                                                min={0}
+                                                                max={1}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            Salinitas
+                                                        </h2>
+                                                        <div className="mt-6 -my-10">
+                                                            <Gauge
+                                                                value={
+                                                                    sensors[0]
+                                                                        .salinitas
+                                                                }
+                                                                min={0}
+                                                                max={1}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -295,10 +291,10 @@ const Tabs = ({ color }) => {
     );
 };
 
-export default function TabsRender() {
+export default function TabsRender(props) {
     return (
         <>
-            <Tabs color="red" />
+            <Tabs color="red" sensors={props.sensors} />
         </>
     );
 }

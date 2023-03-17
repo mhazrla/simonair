@@ -1,6 +1,7 @@
+import { Link } from "@inertiajs/react";
 import { React, useState } from "react";
 
-export default function Sidebar() {
+export default function Sidebar({ alats }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -180,8 +181,8 @@ export default function Sidebar() {
                     </li>
 
                     <li className="my-2">
-                        <a
-                            href="#"
+                        <Link
+                            href={route("dashboard")}
                             className=" bg-gray-100  rounded-md hover:bg-gray-100"
                         >
                             <svg
@@ -199,7 +200,7 @@ export default function Sidebar() {
                                 />
                             </svg>
                             <span className="ml-3">Dashboard</span>
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="hs-accordion my-2" id="bu-account-accordion">
@@ -259,30 +260,21 @@ export default function Sidebar() {
                             className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
                         >
                             <ul className="pt-2 pl-2">
-                                <li>
-                                    <a
-                                        className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-red-300"
-                                        href="#"
-                                    >
-                                        Link 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-red-300"
-                                        href="#"
-                                    >
-                                        Link 2
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-red-300"
-                                        href="#"
-                                    >
-                                        Link 3
-                                    </a>
-                                </li>
+                                {alats.map((data, i) => {
+                                    return (
+                                        <li key={i}>
+                                            <Link
+                                                href={route(
+                                                    "dashboard.detail",
+                                                    data.id_alat
+                                                )}
+                                                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-red-300"
+                                            >
+                                                {data.nama_alat}
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
                             </ul>
                         </div>
                     </li>
