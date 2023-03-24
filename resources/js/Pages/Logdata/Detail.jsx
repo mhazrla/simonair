@@ -10,6 +10,7 @@ export default function Index(props) {
             auth={props.auth}
             errors={props.errors}
             title={props.title}
+            alats={props.alats}
         >
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

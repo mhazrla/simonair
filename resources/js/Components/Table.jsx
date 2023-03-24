@@ -6,7 +6,7 @@ const Table = () => {
             <div className="flex flex-col">
                 <div className="-m-1.5 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
-                        <div className="border rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
+                        <div className="border rounded-lg divide-y divide-gray-200">
                             <div className="py-3 px-4">
                                 <div className="relative max-w-xs">
                                     <label
@@ -19,7 +19,7 @@ const Table = () => {
                                         type="text"
                                         name="hs-table-with-pagination-search"
                                         id="hs-table-with-pagination-search"
-                                        className="p-3 pl-10 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                                        className="p-3 pl-10 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 "
                                         placeholder="Search for items"
                                     />
                                     <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
@@ -37,8 +37,8 @@ const Table = () => {
                                 </div>
                             </div>
                             <div className="overflow-hidden">
-                                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-gray-700">
+                                <table className="min-w-full divide-y divide-gray-200 ">
+                                    <thead className="bg-gray-50 ">
                                         <tr>
                                             <th
                                                 scope="col"
@@ -48,7 +48,7 @@ const Table = () => {
                                                     <input
                                                         id="hs-table-pagination-checkbox-all"
                                                         type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
                                                     />
                                                     <label
                                                         htmlFor="hs-table-pagination-checkbox-all"
@@ -84,14 +84,14 @@ const Table = () => {
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tbody className="divide-y divide-gray-200 ">
                                         <tr>
                                             <td className="py-3 pl-4">
                                                 <div className="flex items-center h-5">
                                                     <input
                                                         id="hs-table-pagination-checkbox-1"
                                                         type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
                                                     />
                                                     <label
                                                         htmlFor="hs-table-pagination-checkbox-1"
@@ -101,13 +101,13 @@ const Table = () => {
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                                                 John Brown
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 45
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 New York No. 1 Lake Park
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -125,7 +125,7 @@ const Table = () => {
                                                     <input
                                                         id="hs-table-pagination-checkbox-2"
                                                         type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
                                                     />
                                                     <label
                                                         htmlFor="hs-table-pagination-checkbox-2"
@@ -135,13 +135,13 @@ const Table = () => {
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                                                 Jim Green
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 27
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 London No. 1 Lake Park
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -159,7 +159,7 @@ const Table = () => {
                                                     <input
                                                         id="hs-table-pagination-checkbox-3"
                                                         type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
                                                     />
                                                     <label
                                                         htmlFor="hs-table-pagination-checkbox-3"
@@ -169,13 +169,13 @@ const Table = () => {
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                                                 Joe Black
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 31
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 Sidney No. 1 Lake Park
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -193,7 +193,7 @@ const Table = () => {
                                                     <input
                                                         id="hs-table-pagination-checkbox-4"
                                                         type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
                                                     />
                                                     <label
                                                         htmlFor="hs-table-pagination-checkbox-4"
@@ -203,13 +203,13 @@ const Table = () => {
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                                                 Edward King
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 16
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 LA No. 1 Lake Park
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -227,7 +227,7 @@ const Table = () => {
                                                     <input
                                                         id="hs-table-pagination-checkbox-5"
                                                         type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
                                                     />
                                                     <label
                                                         htmlFor="hs-table-pagination-checkbox-5"
@@ -237,13 +237,13 @@ const Table = () => {
                                                     </label>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                                                 Jim Red
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 45
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                 Melbourne No. 1 Lake Park
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

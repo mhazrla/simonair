@@ -182,7 +182,7 @@ export default function Sidebar({ alats }) {
 
                     <li className="my-2">
                         <Link
-                            href={route("dashboard")}
+                            href={route("/")}
                             className=" bg-gray-100  rounded-md hover:bg-gray-100"
                         >
                             <svg
@@ -265,7 +265,7 @@ export default function Sidebar({ alats }) {
                                         <li key={i}>
                                             <Link
                                                 href={route(
-                                                    "dashboard.detail",
+                                                    "log",
                                                     data.id_alat
                                                 )}
                                                 className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-red-300"
