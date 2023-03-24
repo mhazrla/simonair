@@ -24,6 +24,7 @@ class AlatSeeder extends Seeder
             'tds' => fake()->randomFloat(2, 0, 1),
             'tss' => fake()->randomFloat(2, 0, 1),
             'salinitas' => fake()->randomFloat(2, 0, 1),
+            'status' => 0
         ]);
     }
 }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('tds', 2, 2)->default(0);
             $table->float('tss', 2, 2)->default(0);
             $table->float('salinitas', 2, 2)->default(0);
-            $table->string('status')->default('undefined');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
