@@ -11,6 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
         $alats = Dashboard::get();
         return Inertia::render(
             'Dashboard/Index',
@@ -23,6 +24,7 @@ class DashboardController extends Controller
 
     public function show($id)
     {
+
         $sensors = Dashboard::where('id_alat', $id)->get();
         return Inertia::render(
             'Dashboard/Detail',
@@ -47,5 +49,12 @@ class DashboardController extends Controller
         ]);
 
         return to_route('dashboard')->with('message', 'Alat Berhasil Ditambahkan');
+    }
+
+    public function getData(Request $request)
+    {
+        $segment = $request->segment(2);
+
+        dd($segment);
     }
 }

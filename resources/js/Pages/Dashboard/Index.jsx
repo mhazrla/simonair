@@ -52,52 +52,109 @@ export default function Index(props) {
         >
             <div className="py-12 ">
                 <div className="max-w-full mx-auto sm:px-6 lg:px-8 ">
-                    <form
-                        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-                        onSubmit={handleSubmit}
-                        action="post"
-                        encType="multipart/form-data"
-                    >
-                        <div className="form-control">
-                            <div className="input-group">
-                                <input
-                                    type="text"
-                                    placeholder="Search…"
-                                    className="input input-bordered"
-                                    id="nama_alat"
-                                    name="nama_alat"
-                                    onChange={handleChange}
-                                    value={values.title}
-                                />
-                                {errors.nama_alat && (
-                                    <div className="text-sm text-red-600">
-                                        {errors.nama_alat}
-                                    </div>
-                                )}
-
-                                <button className="btn btn-square">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg flex justify-between">
                         <div className="p-6  text-fontPrimary text-xl font-bold">
                             List Aquarium
                         </div>
+
+                        {/* Modal Add Start */}
+                        <div className="mx-5 my-auto">
+                            <div className="hidden xl:block">
+                                <label
+                                    htmlFor="my-modal-6"
+                                    className="btn btn-info"
+                                >
+                                    Tambah Aquarium
+                                </label>
+                            </div>
+
+                            <div className="block xl:hidden">
+                                <label
+                                    htmlFor="my-modal-6"
+                                    className="btn btn-circle btn-info"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="32"
+                                        height="32"
+                                        fill="currentColor"
+                                        class="bi bi-plus"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        {" "}
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                            fill="white"
+                                        ></path>{" "}
+                                    </svg>
+                                </label>
+                            </div>
+
+                            <input
+                                type="checkbox"
+                                id="my-modal-6"
+                                className="modal-toggle"
+                            />
+                            <div className="modal modal-bottom sm:modal-middle ">
+                                <div className="modal-box bg-white">
+                                    <label
+                                        htmlFor="my-modal-6"
+                                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                                    >
+                                        ✕
+                                    </label>
+                                    <h3 className="text-lg font-bold text-fontPrimary pb-4">
+                                        Tambah Aquarium Baru
+                                    </h3>
+
+                                    {/* Form Add Start */}
+                                    <form
+                                        onSubmit={handleSubmit}
+                                        action="post"
+                                        encType="multipart/form-data"
+                                    >
+                                        <div className="form-control">
+                                            <div className="input-group">
+                                                <input
+                                                    type="text"
+                                                    placeholder="Nama Aquarium"
+                                                    className="input input-bordered bg-white border-gray-400"
+                                                    id="nama_alat"
+                                                    name="nama_alat"
+                                                    onChange={handleChange}
+                                                    value={values.title}
+                                                />
+
+                                                <button className="btn btn-square">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="32"
+                                                        height="32"
+                                                        fill="currentColor"
+                                                        class="bi bi-plus"
+                                                        viewBox="0 0 16 16"
+                                                    >
+                                                        {" "}
+                                                        <path
+                                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                                            fill="white"
+                                                        ></path>{" "}
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            {errors.nama_alat && (
+                                                <div className="text-sm text-red-600">
+                                                    {errors.nama_alat}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </form>
+                                    {/* Form Add End */}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Modal Add End */}
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = () => {
+const Table = ({ log }) => {
     return (
         <div>
             <div className="flex flex-col">
@@ -85,176 +85,47 @@ const Table = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-200 ">
-                                        <tr>
-                                            <td className="py-3 pl-4">
-                                                <div className="flex items-center h-5">
-                                                    <input
-                                                        id="hs-table-pagination-checkbox-1"
-                                                        type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
-                                                    />
-                                                    <label
-                                                        htmlFor="hs-table-pagination-checkbox-1"
-                                                        className="sr-only"
-                                                    >
-                                                        Checkbox
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                                                John Brown
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                45
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                New York No. 1 Lake Park
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a
-                                                    className="text-blue-500 hover:text-blue-700"
-                                                    href="#"
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="py-3 pl-4">
-                                                <div className="flex items-center h-5">
-                                                    <input
-                                                        id="hs-table-pagination-checkbox-2"
-                                                        type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
-                                                    />
-                                                    <label
-                                                        htmlFor="hs-table-pagination-checkbox-2"
-                                                        className="sr-only"
-                                                    >
-                                                        Checkbox
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                                                Jim Green
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                27
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                London No. 1 Lake Park
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a
-                                                    className="text-blue-500 hover:text-blue-700"
-                                                    href="#"
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="py-3 pl-4">
-                                                <div className="flex items-center h-5">
-                                                    <input
-                                                        id="hs-table-pagination-checkbox-3"
-                                                        type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
-                                                    />
-                                                    <label
-                                                        htmlFor="hs-table-pagination-checkbox-3"
-                                                        className="sr-only"
-                                                    >
-                                                        Checkbox
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                                                Joe Black
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                31
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                Sidney No. 1 Lake Park
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a
-                                                    className="text-blue-500 hover:text-blue-700"
-                                                    href="#"
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="py-3 pl-4">
-                                                <div className="flex items-center h-5">
-                                                    <input
-                                                        id="hs-table-pagination-checkbox-4"
-                                                        type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
-                                                    />
-                                                    <label
-                                                        htmlFor="hs-table-pagination-checkbox-4"
-                                                        className="sr-only"
-                                                    >
-                                                        Checkbox
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                                                Edward King
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                16
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                LA No. 1 Lake Park
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a
-                                                    className="text-blue-500 hover:text-blue-700"
-                                                    href="#"
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className="py-3 pl-4">
-                                                <div className="flex items-center h-5">
-                                                    <input
-                                                        id="hs-table-pagination-checkbox-5"
-                                                        type="checkbox"
-                                                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
-                                                    />
-                                                    <label
-                                                        htmlFor="hs-table-pagination-checkbox-5"
-                                                        className="sr-only"
-                                                    >
-                                                        Checkbox
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                                                Jim Red
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                45
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
-                                                Melbourne No. 1 Lake Park
-                                            </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a
-                                                    className="text-blue-500 hover:text-blue-700"
-                                                    href="#"
-                                                >
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        {log
+                                            ? log.map((data, i) => {
+                                                  return (
+                                                      <tr key={i}>
+                                                          <td className="py-3 pl-4">
+                                                              <div className="flex items-center h-5">
+                                                                  <input
+                                                                      id="hs-table-pagination-checkbox-1"
+                                                                      type="checkbox"
+                                                                      className="border-gray-200 rounded text-blue-600 focus:ring-blue-500   -500 -500 -gray-800"
+                                                                  />
+                                                                  <label
+                                                                      htmlFor="hs-table-pagination-checkbox-1"
+                                                                      className="sr-only"
+                                                                  >
+                                                                      Checkbox
+                                                                  </label>
+                                                              </div>
+                                                          </td>
+                                                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
+                                                              John Brown
+                                                          </td>
+                                                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                                                              45
+                                                          </td>
+                                                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
+                                                              New York No. 1
+                                                              Lake Park
+                                                          </td>
+                                                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                              <a
+                                                                  className="text-blue-500 hover:text-blue-700"
+                                                                  href="#"
+                                                              >
+                                                                  Delete
+                                                              </a>
+                                                          </td>
+                                                      </tr>
+                                                  );
+                                              })
+                                            : "Belum ada daata"}
                                     </tbody>
                                 </table>
                             </div>

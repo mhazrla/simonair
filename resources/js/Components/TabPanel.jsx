@@ -243,7 +243,41 @@ const Tabs = ({ color, sensors }) => {
                                         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                                             <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                                                 <div className="p-6  text-fontPrimary ">
+                                                    {/* Mobile Graph Start */}
                                                     <LineChart
+                                                        className="block sm:hidden"
+                                                        width={290}
+                                                        height={290}
+                                                        data={data}
+                                                        margin={{
+                                                            top: 5,
+                                                            right: 30,
+                                                            left: 20,
+                                                            bottom: 5,
+                                                        }}
+                                                    >
+                                                        <CartesianGrid strokeDasharray="3 3" />
+                                                        <XAxis dataKey="name" />
+                                                        <YAxis />
+                                                        <Tooltip />
+                                                        <Legend />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="pv"
+                                                            stroke="#8884d8"
+                                                            activeDot={{ r: 8 }}
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="uv"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                    </LineChart>
+                                                    {/* Mobile Graph End */}
+
+                                                    {/* Desktop Graph Start */}
+                                                    <LineChart
+                                                        className="hidden sm:block"
                                                         width={800}
                                                         height={400}
                                                         data={data}
@@ -271,6 +305,7 @@ const Tabs = ({ color, sensors }) => {
                                                             stroke="#82ca9d"
                                                         />
                                                     </LineChart>
+                                                    {/* Desktop Graph End */}
                                                 </div>
                                             </div>
                                         </div>

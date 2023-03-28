@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AlatSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
