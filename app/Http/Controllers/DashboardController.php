@@ -14,6 +14,8 @@ class DashboardController extends Controller
     {
 
         $alats = Dashboard::get();
+
+
         return Inertia::render(
             'Dashboard/Index',
             [
@@ -49,7 +51,7 @@ class DashboardController extends Controller
             'id_alat' => Str::random(12),
         ]);
 
-        return to_route('dashboard')->with('message', 'Alat Berhasil Ditambahkan');
+        return to_route('/')->with('message', 'Alat Berhasil Ditambahkan');
     }
 
     public function getData(Request $request)
@@ -66,7 +68,7 @@ class DashboardController extends Controller
 
 
         $amonia < 0.1 and $suhu > 27 && $suhu < 29 and
-            $ph > 6.5 && $ph < 7.5 and $tss <= 5 and
+            $ph > 7 && $ph < 8 and $tss <= 5 and
             $tds <= 1000 and $salinitas == 0 ? $status = 1 : $status;
 
         $data = [
@@ -81,8 +83,7 @@ class DashboardController extends Controller
             "status" => $status
         ];
 
-        Dashboard::create($data);
+        Dashboard::where('id_alat', $id_alat)->update($data);
         Logdata::create($data);
-        dd($data);
     }
 }
