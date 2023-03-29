@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dashboard;
+use App\Models\Logdata;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
@@ -53,8 +54,35 @@ class DashboardController extends Controller
 
     public function getData(Request $request)
     {
-        $segment = $request->segment(2);
+        $id_alat = $request->segment(3);
+        $nama_alat = $request->segment(4);
+        $ph = $request->segment(5);
+        $suhu = $request->segment(6);
+        $amonia = $request->segment(7);
+        $tss = $request->segment(8);
+        $tds = $request->segment(9);
+        $salinitas = $request->segment(10);
+        $status = 0;
 
-        dd($segment);
+
+        $amonia < 0.1 and $suhu > 27 && $suhu < 29 and
+            $ph > 6.5 && $ph < 7.5 and $tss <= 5 and
+            $tds <= 1000 and $salinitas == 0 ? $status = 1 : $status;
+
+        $data = [
+            "id_alat" => $id_alat,
+            "nama_alat" => $nama_alat,
+            "ph" => $ph,
+            "suhu" => $suhu,
+            "amonia" => $amonia,
+            "tss" => $tss,
+            "tds" => $tds,
+            "salinitas" => $salinitas,
+            "status" => $status
+        ];
+
+        Dashboard::create($data);
+        Logdata::create($data);
+        dd($data);
     }
 }

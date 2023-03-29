@@ -17,13 +17,13 @@ class AlatSeeder extends Seeder
 
         DB::table('dashboard')->insert([
             'nama_alat' => Str::random(5),
-            'id_alat' => Str::random(10),
-            'ph' => fake()->randomFloat(2, 0, 1),
-            'suhu' => fake()->randomFloat(2, 0, 1),
-            'amonia' => fake()->randomFloat(2, 0, 1),
-            'tds' => fake()->randomFloat(2, 0, 1),
-            'tss' => fake()->randomFloat(2, 0, 1),
-            'salinitas' => fake()->randomFloat(2, 0, 1),
+            'id_alat' => Str::random(16),
+            'ph' => fake()->randomFloat(2, 0, 2),
+            'suhu' => fake()->randomFloat(2, 0, 2),
+            'amonia' => fake()->randomFloat(2, 0, 2),
+            'tds' => fake()->randomFloat(2, 0, 2),
+            'tss' => fake()->randomFloat(2, 0, 2),
+            'salinitas' => fake()->randomFloat(2, 0, 2),
             'status' => 0
         ]);
     }

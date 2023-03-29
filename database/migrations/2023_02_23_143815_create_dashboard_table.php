@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('dashboard', function (Blueprint $table) {
             $table->id();
             $table->string('nama_alat');
-            $table->char('id_alat', 12)->unique();
-            $table->float('ph', 2, 2)->default(0);
-            $table->float('suhu', 2, 2)->default(0);
-            $table->float('amonia', 2, 2)->default(0);
-            $table->float('tds', 2, 2)->default(0);
-            $table->float('tss', 2, 2)->default(0);
-            $table->float('salinitas', 2, 2)->default(0);
+            $table->char('id_alat', 16);
+            $table->float('ph', 10, 2)->default(0);
+            $table->float('suhu', 10, 2)->default(0);
+            $table->float('amonia', 10, 2)->default(0);
+            $table->float('tds', 10, 2)->default(0);
+            $table->float('tss', 10, 2)->default(0);
+            $table->float('salinitas', 10, 2)->default(0);
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/monitoring', [DashboardController::class, 'getData']);
+Route::get('/monitoring/{id}/{nama}/{ph}/{suhu}/{amonia}/{tss}/{tds}/{salinitas}', [DashboardController::class, 'getData']);

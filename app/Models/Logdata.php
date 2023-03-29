@@ -9,4 +9,5 @@ class Logdata extends Model
 {
     use HasFactory;
     protected $table = 'logdata';
+    protected $fillable = ['id_alat', 'nama_alat', 'ph', 'suhu', 'amonia', 'tss', 'tds', 'salinitas'];
 }
