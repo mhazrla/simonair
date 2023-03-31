@@ -85,5 +85,7 @@ class DashboardController extends Controller
 
         Dashboard::where('id_alat', $id_alat)->update($data);
         Logdata::create($data);
+        // Not finished yet
+        return redirect("/detail/" . $id_alat);
     }
 }

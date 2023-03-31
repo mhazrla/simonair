@@ -1,6 +1,7 @@
 import React from "react";
 
 const Table = ({ log }) => {
+    console.log(log);
     return (
         <div>
             <div className="flex flex-col">
@@ -105,7 +106,7 @@ const Table = ({ log }) => {
                                                               </div>
                                                           </td>
                                                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
-                                                              John Brown
+                                                              {data.ph}
                                                           </td>
                                                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                                                               45

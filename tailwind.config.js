@@ -23,6 +23,8 @@ module.exports = {
             },
             colors: {
                 primary: "#FBFDFF",
+                "dark-blue": "#5DA7DB",
+                "light-blue": "#81C6E8",
                 fontPrimary: "#494949",
             },
         },
