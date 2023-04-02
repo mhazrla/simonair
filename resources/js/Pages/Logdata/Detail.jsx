@@ -5,6 +5,7 @@ import Footer from "@/Components/Footer";
 import Table from "@/Components/Table";
 
 export default function Index(props) {
+    console.log(props.alats);
     return (
         <DefaultLayout
             auth={props.auth}

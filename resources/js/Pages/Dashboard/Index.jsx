@@ -62,7 +62,7 @@ export default function Index(props) {
                             <div className="hidden xl:block">
                                 <label
                                     htmlFor="my-modal-6"
-                                    className="btn btn-info"
+                                    className="btn btn-info text-white"
                                 >
                                     Tambah Aquarium
                                 </label>
@@ -166,13 +166,5 @@ export default function Index(props) {
             </div>
             {/* <Footer /> */}
         </DefaultLayout>
-        //  <div>
-
-        //     {props.tools
-        //         ? props.tools.map((data, i) => {
-        //               return <p key={i}>{data.alatId}</p>;
-        //           })
-        //         : "Belum ada daata"}
-        // </div>
     );
 }
