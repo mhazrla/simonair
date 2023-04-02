@@ -11,13 +11,14 @@ export default function Detail(props) {
             auth={props.auth}
             errors={props.errors}
             title={props.title}
-            alats={props.sensors}
+            alats={props.alats}
+            sensor={props.sensor}
         >
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6  text-fontPrimary text-xl font-bold">
-                            {props.sensors[0].nama_alat}
+                            {props.sensor.nama_alat}
                         </div>
                     </div>
                 </div>
@@ -28,7 +29,7 @@ export default function Detail(props) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden shadow-sm sm:rounded-lg">
-                        <TabsRender sensors={props.sensors} />
+                        <TabsRender sensor={props.sensor} />
                     </div>
                 </div>
             </div>

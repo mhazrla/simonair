@@ -35,70 +35,7 @@ const isAlat = (alats) => {
                                 </div>
                             </div>
                         </div>
-                        {/* <figure>
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
-                                alt="Album"
-                                className="w-auto"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">
-                                New album is released!
-                            </h2>
-                            <p>Click the button to listen on Spotiwhy app.</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">
-                                    Listen
-                                </button>
-                            </div>
-                        </div> */}
                     </div>
-
-                    {/* <article className="overflow-hidden rounded-lg shadow-lg">
-                        <a href="#">
-                            <img
-                                alt="Placeholder"
-                                className="block h-auto w-full"
-                                src="https://picsum.photos/600/400/?random"
-                            />
-                        </a>
-
-                        <header className="flex items-center justify-between leading-tight p-2 md:p-4">
-                            <h1 className="text-lg">
-                                <a
-                                    className="no-underline hover:underline text-black"
-                                    href="#"
-                                >
-                                    {data.nama_alat}
-                                </a>
-                            </h1>
-                            <p className="text-grey-darker text-sm">
-                                {data.updated_at}
-                            </p>
-                        </header>
-
-                        <footer className="flex items-center justify-between leading-none p-2 md:p-4">
-                            <a
-                                className="flex items-center no-underline hover:underline text-black"
-                                href="#"
-                            >
-                                <img
-                                    alt="Placeholder"
-                                    className="block rounded-full"
-                                    src="https://picsum.photos/32/32/?random"
-                                />
-                                <p className="ml-2 text-sm">{data.status}</p>
-                            </a>
-                            <a
-                                className="no-underline text-grey-darker hover:text-red-dark"
-                                href="#"
-                            >
-                                <span className="block">Like</span>
-                                <i className="fa fa-heart"></i>
-                            </a>
-                        </footer>
-                    </article> */}
                 </Link>
             </div>
         );
@@ -106,7 +43,7 @@ const isAlat = (alats) => {
 };
 
 const noAlat = () => {
-    return <div>Saat ini belum ada berita tersedia</div>;
+    return <div>Saat ini belum ada alat yang tersedia</div>;
 };
 
 const AlatList = ({ alats }) => {

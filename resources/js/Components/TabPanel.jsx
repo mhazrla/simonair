@@ -51,7 +51,7 @@ const data = [
     },
 ];
 
-const Tabs = ({ color, sensors }) => {
+const Tabs = ({ color, sensor }) => {
     const [openTab, setOpenTab] = React.useState(1);
     return (
         <>
@@ -120,8 +120,7 @@ const Tabs = ({ color, sensors }) => {
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
                                                                 value={
-                                                                    sensors[0]
-                                                                        .ph
+                                                                    sensor[0].ph
                                                                 }
                                                                 min={0}
                                                                 max={1}
@@ -140,7 +139,7 @@ const Tabs = ({ color, sensors }) => {
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
                                                                 value={
-                                                                    sensors[0]
+                                                                    sensor[0]
                                                                         .suhu
                                                                 }
                                                                 min={0}
@@ -160,7 +159,7 @@ const Tabs = ({ color, sensors }) => {
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
                                                                 value={
-                                                                    sensors[0]
+                                                                    sensor[0]
                                                                         .amonia
                                                                 }
                                                                 min={0}
@@ -180,7 +179,7 @@ const Tabs = ({ color, sensors }) => {
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
                                                                 value={
-                                                                    sensors[0]
+                                                                    sensor[0]
                                                                         .tss
                                                                 }
                                                                 min={0}
@@ -200,7 +199,7 @@ const Tabs = ({ color, sensors }) => {
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
                                                                 value={
-                                                                    sensors[0]
+                                                                    sensor[0]
                                                                         .tds
                                                                 }
                                                                 min={0}
@@ -220,7 +219,7 @@ const Tabs = ({ color, sensors }) => {
                                                         <div className="mt-6 -my-10">
                                                             <Gauge
                                                                 value={
-                                                                    sensors[0]
+                                                                    sensor[0]
                                                                         .salinitas
                                                                 }
                                                                 min={0}
@@ -323,7 +322,7 @@ const Tabs = ({ color, sensors }) => {
 export default function TabsRender(props) {
     return (
         <>
-            <Tabs color="red" sensors={props.sensors} />
+            <Tabs color="red" sensor={props.sensor} />
         </>
     );
 }

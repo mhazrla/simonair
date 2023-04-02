@@ -27,13 +27,14 @@ class DashboardController extends Controller
 
     public function show($id)
     {
-
-        $sensors = Dashboard::where('id_alat', $id)->get();
+        $alats = Dashboard::get();
+        $sensor = Dashboard::where('id_alat', $id)->get();
         return Inertia::render(
             'Dashboard/Detail',
             [
                 'title' => 'Detail',
-                'sensors' => $sensors
+                'sensor' => $sensor,
+                'alats' => $alats
             ]
         );
     }
