@@ -5,7 +5,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Head, Link } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 
-export default function Default({ auth, children, errors, title, alats }) {
+export default function Default({ auth, children, errors, title, alats  }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -15,7 +15,7 @@ export default function Default({ auth, children, errors, title, alats }) {
                 auth={auth}
                 errors={errors}
                 child={children}
-                alats={alats}
+                alats={alats} 
             />
             <Head title={title} />
         </div>

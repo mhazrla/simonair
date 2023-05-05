@@ -120,44 +120,7 @@ const Navbar = ({ auth, child, alats }) => {
                                     </Dropdown.Link>
                                 </Dropdown.Content>
                             </Dropdown>
-                            {/* <div className="dropdown dropdown-end">
-                                <span className="inline-flex rounded-md">
-                                    <button
-                                        type="button"
-                                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500  hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                                    >
-                                        <label
-                                            tabIndex={0}
-                                            className="btn btn-ghost btn-circle avatar"
-                                        >
-                                            <div className="w-10 rounded-full">
-                                                <img src="https://lh3.googleusercontent.com/a/AGNmyxbF0y5fzHdmaCr2QSWl1K9vFgdiddWYy9qbxp7Yww=s288" />
-                                            </div>
-                                        </label>
-                                        <span className="hidden sm:block mx-3">
-                                            {auth.user.name}
-                                        </span>
-                                    </button>
-                                </span>
-
-                                <ul
-                                    tabIndex={0}
-                                    className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-                                >
-                                    <li>
-                                        <a className="justify-between">
-                                            Profile
-                                            <span className="badge">New</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>Settings</a>
-                                    </li>
-                                    <li>
-                                        <a>Logout</a>
-                                    </li>
-                                </ul>
-                            </div> */}
+                    
                             {/* User photo end*/}
                         </div>
                     </div>
