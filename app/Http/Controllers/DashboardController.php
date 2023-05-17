@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dashboard;
 use App\Models\Logdata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
@@ -55,6 +56,13 @@ class DashboardController extends Controller
         return to_route('/')->with('message', 'Alat Berhasil Ditambahkan');
     }
 
+    public function destroy(Request $request)
+    {
+        $dashboard = Dashboard::find($request->id);
+        $dashboard->delete();
+        return Redirect::route('/');
+    }
+
     public function getData(Request $request)
     {
         $id_alat = $request->segment(3);
@@ -90,6 +98,4 @@ class DashboardController extends Controller
         // return redirect("/detail/" . $id_alat);
         return response()->json(['message' => 'Success'], 200);
     }
-
-  
 }

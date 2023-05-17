@@ -18,11 +18,11 @@ use Inertia\Inertia;
 |
 */
 
-Route::controller(DashboardController::class)->middleware('auth')->group(function () {
-    Route::get('/', 'index')->name('/');
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/', 'index')->name('/')->middleware(['auth']);
     Route::post('/store', 'store')->name('dashboard.store');
-    Route::get('/detail/{alat}', 'show')->name('dashboard.detail');
-    Route::post('/orders', 'store');
+    Route::get('/detail/{alat}', 'show')->name('dashboard.detail')->middleware(['auth']);
+    Route::post('destroy', 'destroy')->name('dashboard.destroy')->middleware(['auth']);
 });
 
 Route::controller(LogdataController::class)->middleware('auth')->group(function () {
