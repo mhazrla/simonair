@@ -40,14 +40,6 @@ export default function Detail(props) {
                         </div>
 
                         {/* Modal Delete Start */}
-                        <Link
-                            href={route("dashboard.destroy")}
-                            method="post"
-                            data={{ id: props.sensor[0].id_alat }}
-                            as="button"
-                        >
-                            Delete
-                        </Link>
                         <div className="mx-5 my-auto">
                             <div className="hidden xl:block">
                                 <button

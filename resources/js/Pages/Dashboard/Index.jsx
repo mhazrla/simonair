@@ -78,7 +78,7 @@ export default function Index(props) {
                                         width="32"
                                         height="32"
                                         fill="currentColor"
-                                        class="bi bi-plus"
+                                        className="bi bi-plus"
                                         viewBox="0 0 16 16"
                                     >
                                         {" "}
@@ -131,7 +131,7 @@ export default function Index(props) {
                                                         width="32"
                                                         height="32"
                                                         fill="currentColor"
-                                                        class="bi bi-plus"
+                                                        className="bi bi-plus"
                                                         viewBox="0 0 16 16"
                                                     >
                                                         {" "}

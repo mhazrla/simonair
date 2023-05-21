@@ -11,7 +11,7 @@ class LogdataController extends Controller
 {
     public function show($id)
     {
-        $log = Logdata::where('id_alat', $id)->get();
+        $log = Logdata::where('id_alat', $id)->firstOrFail()->get();
         $alats = Dashboard::get();
 
         return Inertia::render(

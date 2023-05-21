@@ -11,16 +11,16 @@ const isAlat = (alats) => {
             >
                 <Link href={route("dashboard.detail", data.id_alat)}>
                     <div className="card shadow-xl bg-dark-blue">
-                        <div class="grid grid-rows-3 grid-flow-col rounded-lg">
-                            <div class="row-span-3 bg-light-blue grid place-items-center rounded-l-lg text-white text-3xl font-bold ">
+                        <div className="grid grid-rows-3 grid-flow-col rounded-lg">
+                            <div className="row-span-3 bg-light-blue grid place-items-center rounded-l-lg text-white text-3xl font-bold ">
                                 {counting++}
                             </div>
-                            <div class="grid place-items-center row-span-2 col-span-2">
+                            <div className="grid place-items-center row-span-2 col-span-2">
                                 <p className="text-center text-2xl font-bold text-white drop-shadow-xl">
                                     {data.nama_alat}
                                 </p>
                             </div>
-                            <div class=" col-span-2 mb-2">
+                            <div className=" col-span-2 mb-2">
                                 <div className="flex justify-between mx-4 font-light">
                                     <p className="text-white">Status :</p>
                                     <p className="text-white font-semibold">

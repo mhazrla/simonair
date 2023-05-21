@@ -29,7 +29,7 @@ class DashboardController extends Controller
     public function show($id)
     {
         $alats = Dashboard::get();
-        $sensor = Dashboard::where('id_alat', $id)->get();
+        $sensor = Dashboard::where('id_alat', $id)->firstOrFail()->get();
         return Inertia::render(
             'Dashboard/Detail',
             [
@@ -56,10 +56,9 @@ class DashboardController extends Controller
         return to_route('/')->with('message', 'Alat Berhasil Ditambahkan');
     }
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $dashboard = Dashboard::find($request->id);
-        $dashboard->delete();
+        Dashboard::where('id_alat', $id)->firstOrFail()->delete();
         return Redirect::route('/');
     }
 
