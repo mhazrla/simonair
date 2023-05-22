@@ -5,7 +5,6 @@ import Footer from "@/Components/Footer";
 import TabsRender from "@/Components/TabPanel";
 import swal from "sweetalert";
 import { router } from "@inertiajs/react";
-// import { Inertia } from "@inertiajs/inertia";
 
 export default function Detail(props) {
     const handleDelete = (id) => {
@@ -102,7 +101,10 @@ export default function Detail(props) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden shadow-sm sm:rounded-lg">
-                        <TabsRender sensor={props.sensor} />
+                        <TabsRender
+                            sensor={props.sensor}
+                            avg={props.data_avg}
+                        />
                     </div>
                 </div>
             </div>

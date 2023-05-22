@@ -48,7 +48,7 @@ const isData = (log) => {
     const columns = [
         {
             name: "Waktu",
-            selector: (row) => row.updated_at,
+            selector: (row) => row.created_at,
             sortable: true,
         },
         {

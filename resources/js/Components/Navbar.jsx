@@ -120,7 +120,7 @@ const Navbar = ({ auth, child, alats }) => {
                                     </Dropdown.Link>
                                 </Dropdown.Content>
                             </Dropdown>
-                    
+
                             {/* User photo end*/}
                         </div>
                     </div>

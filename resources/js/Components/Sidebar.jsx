@@ -21,7 +21,7 @@ export default function Sidebar({ alats }) {
                             aria-label="Brand"
                         >
                             <img
-                                src="https://flowbite.com/docs/images/logo.svg"
+                                src="https://seeklogo.com/images/I/institut-pertanian-bogor-logo-D3CF643021-seeklogo.com.png"
                                 className="h-8 mr-3 "
                                 alt="Flowbite Logo"
                             />

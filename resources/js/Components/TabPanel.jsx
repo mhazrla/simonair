@@ -11,47 +11,51 @@ import {
     Legend,
     ResponsiveContainer,
 } from "recharts";
-
-const data = [
-    {
-        name: "18/03/23",
-        uv: 4000,
-        pv: 2400,
-        amt: 2400,
-    },
-    {
-        name: "19/03/23",
-        uv: 3000,
-        pv: 1398,
-        amt: 2210,
-    },
-    {
-        name: "20/03/23",
-        uv: 2000,
-        pv: 9800,
-        amt: 2290,
-    },
-    {
-        name: "21/03/23",
-        uv: 2780,
-        pv: 3908,
-        amt: 2000,
-    },
-    {
-        name: "22/03/23",
-        uv: 1890,
-        pv: 4800,
-        amt: 2181,
-    },
-    {
-        name: "23/03/23",
-        uv: 2390,
-        pv: 3800,
-        amt: 2500,
-    },
-];
-
-const Tabs = ({ color, sensor }) => {
+import moment from "moment";
+// {
+//     name: "19/03/23",
+//     uv: 3000,
+//     pv: 1398,
+//     amt: 2210,
+// },
+// {
+//     name: "20/03/23",
+//     uv: 2000,
+//     pv: 9800,
+//     amt: 2290,
+// },
+// {
+//     name: "21/03/23",
+//     uv: 2780,
+//     pv: 3908,
+//     amt: 2000,
+// },
+// {
+//     name: "22/03/23",
+//     uv: 1890,
+//     pv: 4800,
+//     amt: 2181,
+// },
+// {
+//     name: "23/03/23",
+//     uv: 2390,
+//     pv: 3800,
+//     amt: 2500,
+// },
+const Tabs = ({ color, sensor, avg }) => {
+    const data = [];
+    avg.map((item) => {
+        data.push({
+            name: moment(item.date).format("DD/MM/YYYY"),
+            ph: item.ph_avg,
+            suhu: item.suhu_avg,
+            amonia: item.amonia_avg,
+            tss: item.tss_avg,
+            tds: item.tds_avg,
+            salinitas: item.salinitas_avg,
+        });
+    });
+    console.log(data);
     const [openTab, setOpenTab] = React.useState(1);
     return (
         <>
@@ -117,13 +121,14 @@ const Tabs = ({ color, sensor }) => {
                                                         <h2 className="card-title font-bold text-2xl">
                                                             pH
                                                         </h2>
-                                                        <div className="mt-6 -my-10">
+                                                        <div className="mt-4">
                                                             <Gauge
                                                                 value={
                                                                     sensor[0].ph
                                                                 }
                                                                 min={0}
-                                                                max={1}
+                                                                max={8.5}
+                                                                label="pH"
                                                             />
                                                         </div>
                                                     </div>
@@ -136,14 +141,15 @@ const Tabs = ({ color, sensor }) => {
                                                         <h2 className="card-title font-bold text-2xl">
                                                             Suhu
                                                         </h2>
-                                                        <div className="mt-6 -my-10">
+                                                        <div className="mt-4">
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
                                                                         .suhu
                                                                 }
                                                                 min={0}
-                                                                max={1}
+                                                                label="°C"
+                                                                max={32}
                                                             />
                                                         </div>
                                                     </div>
@@ -156,14 +162,15 @@ const Tabs = ({ color, sensor }) => {
                                                         <h2 className="card-title font-bold text-2xl">
                                                             Amonia
                                                         </h2>
-                                                        <div className="mt-6 -my-10">
+                                                        <div className="mt-4">
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
                                                                         .amonia
                                                                 }
                                                                 min={0}
-                                                                max={1}
+                                                                label="g/L"
+                                                                max={0.1}
                                                             />
                                                         </div>
                                                     </div>
@@ -174,16 +181,17 @@ const Tabs = ({ color, sensor }) => {
                                                 <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title font-bold text-2xl">
-                                                            tss
+                                                            TSS
                                                         </h2>
-                                                        <div className="mt-6 -my-10">
+                                                        <div className="mt-4">
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
                                                                         .tss
                                                                 }
                                                                 min={0}
-                                                                max={1}
+                                                                label="Volt"
+                                                                max={3.8}
                                                             />
                                                         </div>
                                                     </div>
@@ -196,14 +204,15 @@ const Tabs = ({ color, sensor }) => {
                                                         <h2 className="card-title font-bold text-2xl">
                                                             TDS
                                                         </h2>
-                                                        <div className="mt-6 -my-10">
+                                                        <div className="mt-4">
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
                                                                         .tds
                                                                 }
                                                                 min={0}
-                                                                max={1}
+                                                                label="PPM"
+                                                                max={135}
                                                             />
                                                         </div>
                                                     </div>
@@ -216,13 +225,14 @@ const Tabs = ({ color, sensor }) => {
                                                         <h2 className="card-title font-bold text-2xl">
                                                             Salinitas
                                                         </h2>
-                                                        <div className="mt-6 -my-10">
+                                                        <div className="mt-4">
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
                                                                         .salinitas
                                                                 }
                                                                 min={0}
+                                                                label="PPM"
                                                                 max={1}
                                                             />
                                                         </div>
@@ -262,13 +272,33 @@ const Tabs = ({ color, sensor }) => {
                                                         <Legend />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="pv"
+                                                            dataKey="ph"
                                                             stroke="#8884d8"
                                                             activeDot={{ r: 8 }}
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="uv"
+                                                            dataKey="suhu"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="amonia"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="tss"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="tds"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="salinitas"
                                                             stroke="#82ca9d"
                                                         />
                                                     </LineChart>
@@ -294,13 +324,33 @@ const Tabs = ({ color, sensor }) => {
                                                         <Legend />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="pv"
+                                                            dataKey="ph"
                                                             stroke="#8884d8"
                                                             activeDot={{ r: 8 }}
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="uv"
+                                                            dataKey="suhu"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="amonia"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="tss"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="tds"
+                                                            stroke="#82ca9d"
+                                                        />
+                                                        <Line
+                                                            type="monotone"
+                                                            dataKey="salinitas"
                                                             stroke="#82ca9d"
                                                         />
                                                     </LineChart>
@@ -322,7 +372,7 @@ const Tabs = ({ color, sensor }) => {
 export default function TabsRender(props) {
     return (
         <>
-            <Tabs color="red" sensor={props.sensor} />
+            <Tabs color="red" sensor={props.sensor} avg={props.avg} />
         </>
     );
 }

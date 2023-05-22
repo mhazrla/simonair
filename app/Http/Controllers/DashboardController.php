@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dashboard;
 use App\Models\Logdata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
@@ -15,7 +16,6 @@ class DashboardController extends Controller
     {
 
         $alats = Dashboard::get();
-
 
         return Inertia::render(
             'Dashboard/Index',
@@ -30,12 +30,38 @@ class DashboardController extends Controller
     {
         $alats = Dashboard::get();
         $sensor = Dashboard::where('id_alat', $id)->firstOrFail()->get();
+
+        $data_avg = [];
+        $averages = DB::table('logdata')
+            ->select(
+                DB::raw('DATE(created_at) as date'),
+                DB::raw('AVG(ph) as ph_avg'),
+                DB::raw('AVG(suhu) as suhu_avg'),
+                DB::raw('AVG(amonia) as amonia_avg'),
+                DB::raw('AVG(tss) as tss_avg'),
+                DB::raw('AVG(tds) as tds_avg'),
+                DB::raw('AVG(salinitas) as salinitas_avg'),
+            )
+            ->groupBy('date')
+            ->get();
+
+        foreach ($averages as $average) {
+            $date = $average->date;
+            $data_avg['ph'] = $average->ph_avg;
+            $data_avg['suhu'] = $average->suhu_avg;
+            $data_avg['amonia'] = $average->amonia_avg;
+            $data_avg['tss'] = $average->tss_avg;
+            $data_avg['tds'] = $average->tds_avg;
+            $data_avg['salinitas'] = $average->salinitas_avg;
+        }
+
         return Inertia::render(
             'Dashboard/Detail',
             [
                 'title' => 'Detail',
                 'sensor' => $sensor,
-                'alats' => $alats
+                'alats' => $alats,
+                'data_avg' => $averages
             ]
         );
     }
@@ -74,10 +100,20 @@ class DashboardController extends Controller
         $salinitas = $request->segment(10);
         $status = 0;
 
+        // if ($salinitas >= 0 && $salinitas <= 0.4 and  $tds <= 0 and $ph >= 6 && $ph <= 8.5 and $suhu >= 28 && $suhu <= 32 and $amonia < 0.1  and $tss > 3.8) {
+        //     $status = 1;
+        // }
 
-        $amonia < 0.1 and $suhu > 27 && $suhu < 29 and
-            $ph > 7 && $ph < 8 and $tss <= 5 and
-            $tds <= 1000 and $salinitas == 0 ? $status = 1 : $status;
+        if ($amonia < 0.1) {
+            if ($ph >= 6 && $ph <= 8.5) {
+                if ($suhu >= 28 && $suhu <= 32) {
+                    if ($tds >= 11 && $tds <= 135 and ($tss > 3.8 or $salinitas >= 0 && $salinitas <= 0.4)) {
+                        $status = 1;
+                    }
+                }
+            }
+        }
+
 
         $data = [
             "id_alat" => $id_alat,
@@ -88,13 +124,11 @@ class DashboardController extends Controller
             "tss" => $tss,
             "tds" => $tds,
             "salinitas" => $salinitas,
-            "status" => $status
+            "status" => $status,
+            'created_at' => \Carbon\Carbon::now()->toDateTimeString()
         ];
-
         Dashboard::where('id_alat', $id_alat)->update($data);
-        Logdata::create($data);
-        // Not finished yet
-        // return redirect("/detail/" . $id_alat);
+        Logdata::insert($data);
         return response()->json(['message' => 'Success'], 200);
     }
 }
