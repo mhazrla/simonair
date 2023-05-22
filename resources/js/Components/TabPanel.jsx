@@ -47,12 +47,12 @@ const Tabs = ({ color, sensor, avg }) => {
     avg.map((item) => {
         data.push({
             name: moment(item.date).format("DD/MM/YYYY"),
-            ph: item.ph_avg,
-            suhu: item.suhu_avg,
-            amonia: item.amonia_avg,
-            tss: item.tss_avg,
-            tds: item.tds_avg,
-            salinitas: item.salinitas_avg,
+            pH: item.ph_avg,
+            Suhu: item.suh_avg,
+            Amonia: item.amonia_avg,
+            TSS: item.tss_avg,
+            TDS: item.tds_avg,
+            Salinitas: item.salinitas_avg,
         });
     });
     console.log(data);
@@ -124,7 +124,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                         <div className="mt-4">
                                                             <Gauge
                                                                 value={
-                                                                    sensor[0].ph
+                                                                    sensor[0].pH
                                                                 }
                                                                 min={0}
                                                                 max={8.5}
@@ -145,7 +145,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .suhu
+                                                                        .Suhu
                                                                 }
                                                                 min={0}
                                                                 label="°C"
@@ -166,7 +166,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .amonia
+                                                                        .Amonia
                                                                 }
                                                                 min={0}
                                                                 label="g/L"
@@ -187,7 +187,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .tss
+                                                                        .TSS
                                                                 }
                                                                 min={0}
                                                                 label="Volt"
@@ -208,7 +208,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .tds
+                                                                        .TDS
                                                                 }
                                                                 min={0}
                                                                 label="PPM"
@@ -229,7 +229,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .salinitas
+                                                                        .Salinitas
                                                                 }
                                                                 min={0}
                                                                 label="PPM"
@@ -272,34 +272,34 @@ const Tabs = ({ color, sensor, avg }) => {
                                                         <Legend />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="ph"
+                                                            dataKey="pH"
                                                             stroke="#8884d8"
                                                             activeDot={{ r: 8 }}
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="suhu"
+                                                            dataKey="Suhu"
                                                             stroke="#82ca9d"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="amonia"
-                                                            stroke="#82ca9d"
+                                                            dataKey="Amonia"
+                                                            stroke="#025464"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="tss"
-                                                            stroke="#82ca9d"
+                                                            dataKey="TSS"
+                                                            stroke="#E57C23"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="tds"
-                                                            stroke="#82ca9d"
+                                                            dataKey="TDS"
+                                                            stroke="#4C4C6D"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="salinitas"
-                                                            stroke="#82ca9d"
+                                                            dataKey="Salinitas"
+                                                            stroke="#8B1874"
                                                         />
                                                     </LineChart>
                                                     {/* Mobile Graph End */}
@@ -324,34 +324,34 @@ const Tabs = ({ color, sensor, avg }) => {
                                                         <Legend />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="ph"
+                                                            dataKey="pH"
                                                             stroke="#8884d8"
                                                             activeDot={{ r: 8 }}
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="suhu"
+                                                            dataKey="Suhu"
                                                             stroke="#82ca9d"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="amonia"
-                                                            stroke="#82ca9d"
+                                                            dataKey="Amonia"
+                                                            stroke="#025464"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="tss"
-                                                            stroke="#82ca9d"
+                                                            dataKey="TSS"
+                                                            stroke="#E57C23"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="tds"
-                                                            stroke="#82ca9d"
+                                                            dataKey="TDS"
+                                                            stroke="#4C4C6D"
                                                         />
                                                         <Line
                                                             type="monotone"
-                                                            dataKey="salinitas"
-                                                            stroke="#82ca9d"
+                                                            dataKey="Salinitas"
+                                                            stroke="#8B1874"
                                                         />
                                                     </LineChart>
                                                     {/* Desktop Graph End */}
