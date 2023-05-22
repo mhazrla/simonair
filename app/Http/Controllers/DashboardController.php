@@ -127,7 +127,7 @@ class DashboardController extends Controller
             "status" => $status,
             'created_at' => \Carbon\Carbon::now()->toDateTimeString()
         ];
-        Dashboard::where('id_alat', $id_alat)->update($data);
+        Dashboard::where('id_alat', $id_alat)->firstOrFail()->update($data);
         Logdata::insert($data);
         return response()->json(['message' => 'Success'], 200);
     }
