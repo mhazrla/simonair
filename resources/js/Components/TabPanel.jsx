@@ -1,5 +1,6 @@
 import React from "react";
 import Gauge from "./Gauge";
+import moment from "moment";
 
 import {
     LineChart,
@@ -11,37 +12,7 @@ import {
     Legend,
     ResponsiveContainer,
 } from "recharts";
-import moment from "moment";
-// {
-//     name: "19/03/23",
-//     uv: 3000,
-//     pv: 1398,
-//     amt: 2210,
-// },
-// {
-//     name: "20/03/23",
-//     uv: 2000,
-//     pv: 9800,
-//     amt: 2290,
-// },
-// {
-//     name: "21/03/23",
-//     uv: 2780,
-//     pv: 3908,
-//     amt: 2000,
-// },
-// {
-//     name: "22/03/23",
-//     uv: 1890,
-//     pv: 4800,
-//     amt: 2181,
-// },
-// {
-//     name: "23/03/23",
-//     uv: 2390,
-//     pv: 3800,
-//     amt: 2500,
-// },
+
 const Tabs = ({ color, sensor, avg }) => {
     const data = [];
     avg.map((item) => {
@@ -55,7 +26,6 @@ const Tabs = ({ color, sensor, avg }) => {
             Salinitas: item.salinitas_avg,
         });
     });
-    console.log(data);
     const [openTab, setOpenTab] = React.useState(1);
     return (
         <>
@@ -124,7 +94,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                         <div className="mt-4">
                                                             <Gauge
                                                                 value={
-                                                                    sensor[0].pH
+                                                                    sensor[0].ph
                                                                 }
                                                                 min={0}
                                                                 max={8.5}
@@ -145,7 +115,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .Suhu
+                                                                        .suhu
                                                                 }
                                                                 min={0}
                                                                 label="°C"
@@ -166,7 +136,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .Amonia
+                                                                        .amonia
                                                                 }
                                                                 min={0}
                                                                 label="g/L"
@@ -187,7 +157,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .TSS
+                                                                        .tss
                                                                 }
                                                                 min={0}
                                                                 label="Volt"
@@ -208,7 +178,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .TDS
+                                                                        .tds
                                                                 }
                                                                 min={0}
                                                                 label="PPM"
@@ -229,7 +199,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                             <Gauge
                                                                 value={
                                                                     sensor[0]
-                                                                        .Salinitas
+                                                                        .salinitas
                                                                 }
                                                                 min={0}
                                                                 label="PPM"
