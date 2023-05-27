@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Gauge from "./Gauge";
 import moment from "moment";
 
@@ -14,9 +14,11 @@ import {
 } from "recharts";
 
 const Tabs = ({ color, sensor, avg }) => {
-    const data = [];
+    const sensorId = sensor.id_alat;
+    const [data, setData] = useState([]);
+    const average = [];
     avg.map((item) => {
-        data.push({
+        average.push({
             name: moment(item.date).format("DD/MM/YYYY"),
             pH: item.ph_avg,
             Suhu: item.suh_avg,
@@ -26,6 +28,23 @@ const Tabs = ({ color, sensor, avg }) => {
             Salinitas: item.salinitas_avg,
         });
     });
+
+    useEffect(() => {
+        fetchData();
+        const interval = setInterval(() => {
+            fetchData(); // Fetch updated data at regular intervals
+        }, 7000);
+    }, [sensor]);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`/api/data/${sensorId}`);
+            const responseData = await response.json();
+            setData(responseData);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
     const [openTab, setOpenTab] = React.useState(1);
     return (
         <>
@@ -83,134 +102,135 @@ const Tabs = ({ color, sensor, avg }) => {
                                     }
                                     id="link1"
                                 >
-                                    <div className="container my-12 mx-auto px-4 md:px-12">
-                                        <div className="flex flex-wrap -mx-1 lg:-mx-4">
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title font-bold text-2xl">
-                                                            pH
-                                                        </h2>
-                                                        <div className="mt-4">
-                                                            <Gauge
-                                                                value={
-                                                                    sensor[0].ph
-                                                                }
-                                                                min={0}
-                                                                max={8.5}
-                                                                label="pH"
-                                                            />
+                                    {/* Render the fetched data */}
+                                    {data.map((item) => (
+                                        <div
+                                            id={item.id}
+                                            className="container my-12 mx-auto px-4 md:px-12"
+                                        >
+                                            <div className="flex flex-wrap -mx-1 lg:-mx-4">
+                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                        <div className="card-body items-center text-center">
+                                                            <h2 className="card-title font-bold text-2xl">
+                                                                pH {item.ph}
+                                                            </h2>
+                                                            <div className="mt-4">
+                                                                <Gauge
+                                                                    value={
+                                                                        item.ph
+                                                                    }
+                                                                    min={0}
+                                                                    max={8.5}
+                                                                    label="pH"
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </article>
-                                            </div>
+                                                    </article>
+                                                </div>
 
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title font-bold text-2xl">
-                                                            Suhu
-                                                        </h2>
-                                                        <div className="mt-4">
-                                                            <Gauge
-                                                                value={
-                                                                    sensor[0]
-                                                                        .suhu
-                                                                }
-                                                                min={0}
-                                                                label="°C"
-                                                                max={32}
-                                                            />
+                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                        <div className="card-body items-center text-center">
+                                                            <h2 className="card-title font-bold text-2xl">
+                                                                Suhu
+                                                            </h2>
+                                                            <div className="mt-4">
+                                                                <Gauge
+                                                                    value={
+                                                                        item.suhu
+                                                                    }
+                                                                    min={0}
+                                                                    label="°C"
+                                                                    max={32}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </article>
-                                            </div>
+                                                    </article>
+                                                </div>
 
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title font-bold text-2xl">
-                                                            Amonia
-                                                        </h2>
-                                                        <div className="mt-4">
-                                                            <Gauge
-                                                                value={
-                                                                    sensor[0]
-                                                                        .amonia
-                                                                }
-                                                                min={0}
-                                                                label="g/L"
-                                                                max={0.1}
-                                                            />
+                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                        <div className="card-body items-center text-center">
+                                                            <h2 className="card-title font-bold text-2xl">
+                                                                Amonia
+                                                            </h2>
+                                                            <div className="mt-4">
+                                                                <Gauge
+                                                                    value={
+                                                                        item.amonia
+                                                                    }
+                                                                    min={0}
+                                                                    label="g/L"
+                                                                    max={0.1}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </article>
-                                            </div>
+                                                    </article>
+                                                </div>
 
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title font-bold text-2xl">
-                                                            TSS
-                                                        </h2>
-                                                        <div className="mt-4">
-                                                            <Gauge
-                                                                value={
-                                                                    sensor[0]
-                                                                        .tss
-                                                                }
-                                                                min={0}
-                                                                label="Volt"
-                                                                max={3.8}
-                                                            />
+                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                        <div className="card-body items-center text-center">
+                                                            <h2 className="card-title font-bold text-2xl">
+                                                                TSS
+                                                            </h2>
+                                                            <div className="mt-4">
+                                                                <Gauge
+                                                                    value={
+                                                                        item.tss
+                                                                    }
+                                                                    min={0}
+                                                                    label="Volt"
+                                                                    max={3.8}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </article>
-                                            </div>
+                                                    </article>
+                                                </div>
 
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title font-bold text-2xl">
-                                                            TDS
-                                                        </h2>
-                                                        <div className="mt-4">
-                                                            <Gauge
-                                                                value={
-                                                                    sensor[0]
-                                                                        .tds
-                                                                }
-                                                                min={0}
-                                                                label="PPM"
-                                                                max={135}
-                                                            />
+                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                        <div className="card-body items-center text-center">
+                                                            <h2 className="card-title font-bold text-2xl">
+                                                                TDS
+                                                            </h2>
+                                                            <div className="mt-4">
+                                                                <Gauge
+                                                                    value={
+                                                                        item.tds
+                                                                    }
+                                                                    min={0}
+                                                                    label="PPM"
+                                                                    max={135}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </article>
-                                            </div>
+                                                    </article>
+                                                </div>
 
-                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                    <div className="card-body items-center text-center">
-                                                        <h2 className="card-title font-bold text-2xl">
-                                                            Salinitas
-                                                        </h2>
-                                                        <div className="mt-4">
-                                                            <Gauge
-                                                                value={
-                                                                    sensor[0]
-                                                                        .salinitas
-                                                                }
-                                                                min={0}
-                                                                label="PPM"
-                                                                max={1}
-                                                            />
+                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                        <div className="card-body items-center text-center">
+                                                            <h2 className="card-title font-bold text-2xl">
+                                                                Salinitas
+                                                            </h2>
+                                                            <div className="mt-4">
+                                                                <Gauge
+                                                                    value={
+                                                                        item.salinitas
+                                                                    }
+                                                                    min={0}
+                                                                    label="PPM"
+                                                                    max={1}
+                                                                />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </article>
+                                                    </article>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </div>
                                 <div
                                     className={
@@ -227,7 +247,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                         className="block sm:hidden"
                                                         width={290}
                                                         height={290}
-                                                        data={data}
+                                                        data={average}
                                                         margin={{
                                                             top: 5,
                                                             right: 30,
@@ -279,7 +299,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                         className="hidden sm:block"
                                                         width={800}
                                                         height={400}
-                                                        data={data}
+                                                        data={average}
                                                         margin={{
                                                             top: 5,
                                                             right: 30,

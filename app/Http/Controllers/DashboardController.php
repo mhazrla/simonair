@@ -29,8 +29,7 @@ class DashboardController extends Controller
     public function show($id)
     {
         $alats = Dashboard::get();
-        $sensor = Dashboard::where('id_alat', $id)->firstOrFail()->get();
-
+        $sensor = Dashboard::where('id_alat', $id)->firstOrFail();
         $data_avg = [];
         $averages = DB::table('logdata')
             ->select(
@@ -130,5 +129,17 @@ class DashboardController extends Controller
         Dashboard::where('id_alat', $id_alat)->firstOrFail()->update($data);
         Logdata::insert($data);
         return response()->json(['message' => 'Success'], 200);
+    }
+
+    public function ApiCall()
+    {
+        $dashboard = Dashboard::get();
+        return response()->json($dashboard);
+    }
+
+    public function ApiCallByID($id)
+    {
+        $dashboard = Dashboard::where('id_alat', $id)->firstOrFail()->get();
+        return response()->json($dashboard);
     }
 }

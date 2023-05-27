@@ -35,7 +35,7 @@ export default function Detail(props) {
                 <div className="max-w-full mx-auto sm:px-6 lg:px-8 ">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg flex justify-between">
                         <div className="p-6  text-fontPrimary text-xl font-bold">
-                            {props.sensor[0].nama_alat}
+                            {props.sensor.nama_alat}
                         </div>
 
                         {/* Modal Delete Start */}
@@ -45,7 +45,7 @@ export default function Detail(props) {
                                     className="btn bg-red-600 text-white border-0 hover:bg-red-700"
                                     onClick={handleDelete.bind(
                                         this,
-                                        props.sensor[0].id_alat
+                                        props.sensor.id_alat
                                     )}
                                 >
                                     Delete
@@ -56,7 +56,7 @@ export default function Detail(props) {
                                 <button
                                     onClick={handleDelete.bind(
                                         this,
-                                        props.sensor[0].id_alat
+                                        props.sensor.id_alat
                                     )}
                                 >
                                     <label

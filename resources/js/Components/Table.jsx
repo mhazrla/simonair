@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import DataTable from "react-data-table-component";
 
@@ -48,7 +49,8 @@ const isData = (log) => {
     const columns = [
         {
             name: "Waktu",
-            selector: (row) => row.created_at,
+            selector: (row) =>
+                moment(row.created_at).format("DD/MM/YYYY hh:mm:ss"),
             sortable: true,
         },
         {
@@ -77,8 +79,10 @@ const isData = (log) => {
         },
         {
             name: "Status",
-            selector: (row) => row.status,
+            selector: (row) =>
+                row.status == 1 ? "Kualitas Air Baik" : "Kualitas Air Buruk",
             sortable: true,
+            minWidth: 250,
         },
     ];
 
@@ -104,11 +108,11 @@ const isData = (log) => {
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g
                             id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
                             {" "}
@@ -118,9 +122,9 @@ const isData = (log) => {
                                     id="Vector"
                                     d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
                                     stroke="#fff"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 ></path>{" "}
                             </g>{" "}
                         </g>
@@ -155,6 +159,7 @@ const isData = (log) => {
             pagination
             highlightOnHover
             pointerOnHover
+            responsive={true}
         />
     );
 };

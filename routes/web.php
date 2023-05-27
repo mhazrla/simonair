@@ -20,7 +20,7 @@ use Inertia\Inertia;
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/', 'index')->name('/')->middleware(['auth']);
-    Route::post('/store', 'store')->name('dashboard.store');
+    Route::post('/store', 'store')->name('dashboard.store')->middleware(['auth']);
     Route::get('/detail/{alat}', 'show')->name('dashboard.detail')->middleware(['auth']);
     Route::delete('{destroy}', 'destroy')->name('dashboard.destroy')->middleware(['auth']);
 });

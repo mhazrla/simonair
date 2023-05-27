@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/monitoring/{id}/{nama}/{ph}/{suhu}/{amonia}/{tss}/{tds}/{salinitas}', [DashboardController::class, 'getData']);
+Route::get('/datas', [DashboardController::class, 'ApiCall']);
+Route::get('/data/{id_alat}', [DashboardController::class, 'ApiCallById']);
