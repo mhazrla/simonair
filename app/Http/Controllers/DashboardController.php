@@ -30,6 +30,7 @@ class DashboardController extends Controller
     {
         $alats = Dashboard::get();
         $sensor = Dashboard::where('id_alat', $id)->firstOrFail();
+
         $data_avg = [];
         $averages = DB::table('logdata')
             ->select(
@@ -139,7 +140,7 @@ class DashboardController extends Controller
 
     public function ApiCallByID($id)
     {
-        $dashboard = Dashboard::where('id_alat', $id)->firstOrFail()->get();
+        $dashboard = Dashboard::where('id_alat', $id)->firstOrFail();
         return response()->json($dashboard);
     }
 }

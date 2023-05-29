@@ -19,13 +19,13 @@ const Tabs = ({ color, sensor, avg }) => {
     const average = [];
     avg.map((item) => {
         average.push({
-            name: moment(item.date).format("DD/MM/YYYY"),
-            pH: item.ph_avg,
-            Suhu: item.suh_avg,
-            Amonia: item.amonia_avg,
-            TSS: item.tss_avg,
-            TDS: item.tds_avg,
-            Salinitas: item.salinitas_avg,
+            name: moment(data.date).format("DD/MM/YYYY"),
+            pH: data.ph_avg,
+            Suhu: data.suh_avg,
+            Amonia: data.amonia_avg,
+            TSS: data.tss_avg,
+            TDS: data.tds_avg,
+            Salinitas: data.salinitas_avg,
         });
     });
 
@@ -103,134 +103,126 @@ const Tabs = ({ color, sensor, avg }) => {
                                     id="link1"
                                 >
                                     {/* Render the fetched data */}
-                                    {data.map((item) => (
-                                        <div
-                                            id={item.id}
-                                            className="container my-12 mx-auto px-4 md:px-12"
-                                        >
-                                            <div className="flex flex-wrap -mx-1 lg:-mx-4">
-                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                        <div className="card-body items-center text-center">
-                                                            <h2 className="card-title font-bold text-2xl">
-                                                                pH {item.ph}
-                                                            </h2>
-                                                            <div className="mt-4">
-                                                                <Gauge
-                                                                    value={
-                                                                        item.ph
-                                                                    }
-                                                                    min={0}
-                                                                    max={8.5}
-                                                                    label="pH"
-                                                                />
-                                                            </div>
+                                    <div
+                                        id={data.id_alat}
+                                        className="container my-12 mx-auto px-4 md:px-12"
+                                    >
+                                        <div className="flex flex-wrap -mx-1 lg:-mx-4">
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            pH {data.ph}
+                                                        </h2>
+                                                        <div className="mt-4">
+                                                            <Gauge
+                                                                value={data.ph}
+                                                                min={0}
+                                                                max={8.5}
+                                                                label="pH"
+                                                            />
                                                         </div>
-                                                    </article>
-                                                </div>
+                                                    </div>
+                                                </article>
+                                            </div>
 
-                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                        <div className="card-body items-center text-center">
-                                                            <h2 className="card-title font-bold text-2xl">
-                                                                Suhu
-                                                            </h2>
-                                                            <div className="mt-4">
-                                                                <Gauge
-                                                                    value={
-                                                                        item.suhu
-                                                                    }
-                                                                    min={0}
-                                                                    label="°C"
-                                                                    max={32}
-                                                                />
-                                                            </div>
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            Suhu
+                                                        </h2>
+                                                        <div className="mt-4">
+                                                            <Gauge
+                                                                value={
+                                                                    data.suhu
+                                                                }
+                                                                min={0}
+                                                                label="°C"
+                                                                max={32}
+                                                            />
                                                         </div>
-                                                    </article>
-                                                </div>
+                                                    </div>
+                                                </article>
+                                            </div>
 
-                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                        <div className="card-body items-center text-center">
-                                                            <h2 className="card-title font-bold text-2xl">
-                                                                Amonia
-                                                            </h2>
-                                                            <div className="mt-4">
-                                                                <Gauge
-                                                                    value={
-                                                                        item.amonia
-                                                                    }
-                                                                    min={0}
-                                                                    label="g/L"
-                                                                    max={0.1}
-                                                                />
-                                                            </div>
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            Amonia
+                                                        </h2>
+                                                        <div className="mt-4">
+                                                            <Gauge
+                                                                value={
+                                                                    data.amonia
+                                                                }
+                                                                min={0}
+                                                                label="g/L"
+                                                                max={0.1}
+                                                            />
                                                         </div>
-                                                    </article>
-                                                </div>
+                                                    </div>
+                                                </article>
+                                            </div>
 
-                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                        <div className="card-body items-center text-center">
-                                                            <h2 className="card-title font-bold text-2xl">
-                                                                TSS
-                                                            </h2>
-                                                            <div className="mt-4">
-                                                                <Gauge
-                                                                    value={
-                                                                        item.tss
-                                                                    }
-                                                                    min={0}
-                                                                    label="Volt"
-                                                                    max={3.8}
-                                                                />
-                                                            </div>
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            TSS
+                                                        </h2>
+                                                        <div className="mt-4">
+                                                            <Gauge
+                                                                value={data.tss}
+                                                                min={0}
+                                                                label="Volt"
+                                                                max={3.8}
+                                                            />
                                                         </div>
-                                                    </article>
-                                                </div>
+                                                    </div>
+                                                </article>
+                                            </div>
 
-                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                        <div className="card-body items-center text-center">
-                                                            <h2 className="card-title font-bold text-2xl">
-                                                                TDS
-                                                            </h2>
-                                                            <div className="mt-4">
-                                                                <Gauge
-                                                                    value={
-                                                                        item.tds
-                                                                    }
-                                                                    min={0}
-                                                                    label="PPM"
-                                                                    max={135}
-                                                                />
-                                                            </div>
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            TDS
+                                                        </h2>
+                                                        <div className="mt-4">
+                                                            <Gauge
+                                                                value={data.tds}
+                                                                min={0}
+                                                                label="PPM"
+                                                                max={135}
+                                                            />
                                                         </div>
-                                                    </article>
-                                                </div>
+                                                    </div>
+                                                </article>
+                                            </div>
 
-                                                <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
-                                                    <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
-                                                        <div className="card-body items-center text-center">
-                                                            <h2 className="card-title font-bold text-2xl">
-                                                                Salinitas
-                                                            </h2>
-                                                            <div className="mt-4">
-                                                                <Gauge
-                                                                    value={
-                                                                        item.salinitas
-                                                                    }
-                                                                    min={0}
-                                                                    label="PPM"
-                                                                    max={1}
-                                                                />
-                                                            </div>
+                                            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 ">
+                                                <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
+                                                    <div className="card-body items-center text-center">
+                                                        <h2 className="card-title font-bold text-2xl">
+                                                            Salinitas
+                                                        </h2>
+                                                        <div className="mt-4">
+                                                            <Gauge
+                                                                value={
+                                                                    data.salinitas
+                                                                }
+                                                                min={0}
+                                                                label="PPM"
+                                                                max={1}
+                                                            />
                                                         </div>
-                                                    </article>
-                                                </div>
+                                                    </div>
+                                                </article>
                                             </div>
                                         </div>
-                                    ))}
+                                    </div>
                                 </div>
                                 <div
                                     className={
