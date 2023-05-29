@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/react";
 import { React, useState } from "react";
 import simonair from "../../assets/simonair.png";
+import NavLink from "./NavLink";
 
 export default function Sidebar({ alats }) {
     const [open, setOpen] = useState(false);
@@ -23,19 +24,19 @@ export default function Sidebar({ alats }) {
                         >
                             <img
                                 src={simonair}
-                                className="h-20 mr-3 "
+                                className="h-52 mr-3 my-[-4rem]"
                                 alt="Flowbite Logo"
                             />
-                            <span className="self-center text-2xl whitespace-nowrap font-bold tracking-wide">
+                            {/* <span className="self-center text-2xl whitespace-nowrap font-bold tracking-wide">
                                 SIMONAIR
-                            </span>
+                            </span> */}
                         </a>
                     </li>
 
                     <li className="my-2">
                         <Link
                             href={route("/")}
-                            className=" bg-gray-100  rounded-md hover:bg-gray-100"
+                            className="  rounded-md hover:bg-light-blue"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@ export default function Sidebar({ alats }) {
 
                     <li className="hs-accordion my-2" id="bu-account-accordion">
                         <a
-                            className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-slate-700 rounded-md hover:bg-gray-100"
+                            className="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-slate-700 rounded-md hover:bg-light-blue bg-transparent"
                             href="#"
                         >
                             <svg
@@ -109,7 +110,7 @@ export default function Sidebar({ alats }) {
                         </a>
                         <div
                             id="bu-account-accordion"
-                            className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
+                            className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden bg-transparent"
                         >
                             <ul className="pt-2 pl-2">
                                 {alats.map((data, i) => {
@@ -120,7 +121,7 @@ export default function Sidebar({ alats }) {
                                                     "log",
                                                     data.id_alat
                                                 )}
-                                                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-red-300"
+                                                className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-light-blue"
                                             >
                                                 {data.nama_alat}
                                             </Link>
