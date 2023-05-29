@@ -1,5 +1,6 @@
 import { Link } from "@inertiajs/react";
 import { React, useState } from "react";
+import simonair from "../../assets/simonair.png";
 
 export default function Sidebar({ alats }) {
     const [open, setOpen] = useState(false);
@@ -21,8 +22,8 @@ export default function Sidebar({ alats }) {
                             aria-label="Brand"
                         >
                             <img
-                                src="https://seeklogo.com/images/I/institut-pertanian-bogor-logo-D3CF643021-seeklogo.com.png"
-                                className="h-8 mr-3 "
+                                src={simonair}
+                                className="h-20 mr-3 "
                                 alt="Flowbite Logo"
                             />
                             <span className="self-center text-2xl whitespace-nowrap font-bold tracking-wide">

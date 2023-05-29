@@ -1,4 +1,5 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
+import simonair from "../../assets/simonair.png";
 import { Link } from "@inertiajs/react";
 
 export default function Guest({ children }) {
@@ -7,14 +8,14 @@ export default function Guest({ children }) {
             <div>
                 <Link href="/">
                     <img
-                        src="https://seeklogo.com/images/I/institut-pertanian-bogor-logo-D3CF643021-seeklogo.com.png"
-                        className="w-20 h-20 fill-current text-gray-500"
+                        src={simonair}
+                        className="w-48 h-48 fill-current text-gray-500"
                     />
                     {/* <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" /> */}
                 </Link>
             </div>
 
-            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div className="w-full sm:max-w-md mt-3 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 {children}
             </div>
         </div>
