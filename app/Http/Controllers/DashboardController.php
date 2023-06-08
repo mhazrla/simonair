@@ -14,7 +14,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
         $alats = Dashboard::get();
 
         return Inertia::render(
@@ -68,6 +67,7 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+        if (auth()->user()->role === 0) abort(403);
 
         $this->validate(
             $request,
@@ -84,6 +84,8 @@ class DashboardController extends Controller
 
     public function destroy($id)
     {
+        if (auth()->user()->role === 0) abort(403);
+
         Dashboard::where('id_alat', $id)->firstOrFail()->delete();
         return Redirect::route('/');
     }
@@ -99,10 +101,6 @@ class DashboardController extends Controller
         $tds = $request->segment(9);
         $salinitas = $request->segment(10);
         $status = 0;
-
-        // if ($salinitas >= 0 && $salinitas <= 0.4 and  $tds <= 0 and $ph >= 6 && $ph <= 8.5 and $suhu >= 28 && $suhu <= 32 and $amonia < 0.1  and $tss > 3.8) {
-        //     $status = 1;
-        // }
 
         if ($amonia < 0.1) {
             if ($ph >= 6 && $ph <= 8.5) {

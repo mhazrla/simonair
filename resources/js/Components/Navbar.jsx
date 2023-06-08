@@ -16,7 +16,7 @@ const Navbar = ({ auth, child, alats }) => {
                 />
                 <div className="drawer-content flex flex-col drop-shadow-md shadow-lg ">
                     <div className="w-full navbar bg-primary">
-                        <div className="flex-none lg:hidden">
+                        {/* <div className="flex-none lg:hidden">
                             <label
                                 htmlFor="my-drawer-3"
                                 className="btn btn-square btn-ghost"
@@ -35,10 +35,10 @@ const Navbar = ({ auth, child, alats }) => {
                                     ></path>
                                 </svg>
                             </label>
-                        </div>
+                        </div> */}
 
                         <div className="flex-none ml-auto">
-                            <div className="dropdown dropdown-end">
+                            {/* <div className="dropdown dropdown-end">
                                 <button className="btn btn-ghost btn-circle">
                                     <div className="indicator">
                                         <svg
@@ -79,7 +79,7 @@ const Navbar = ({ auth, child, alats }) => {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* User photo start*/}
                             <Dropdown>

@@ -57,101 +57,105 @@ export default function Index(props) {
                         </div>
 
                         {/* Modal Add Start */}
-                        <div className="mx-5 my-auto">
-                            <div className="hidden xl:block">
-                                <label
-                                    htmlFor="my-modal-6"
-                                    className="btn btn-info text-white"
-                                >
-                                    Tambah Aquarium
-                                </label>
-                            </div>
-
-                            <div className="block xl:hidden">
-                                <label
-                                    htmlFor="my-modal-6"
-                                    className="btn btn-circle btn-info"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        fill="currentColor"
-                                        className="bi bi-plus"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        {" "}
-                                        <path
-                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                                            fill="white"
-                                        ></path>{" "}
-                                    </svg>
-                                </label>
-                            </div>
-
-                            <input
-                                type="checkbox"
-                                id="my-modal-6"
-                                className="modal-toggle"
-                            />
-                            <div className="modal modal-bottom sm:modal-middle ">
-                                <div className="modal-box bg-white">
+                        {props.auth.user.role === 1 ? (
+                            <div className="mx-5 my-auto">
+                                <div className="hidden xl:block">
                                     <label
                                         htmlFor="my-modal-6"
-                                        className="btn btn-sm btn-circle absolute right-2 top-2"
+                                        className="btn btn-info text-white"
                                     >
-                                        ✕
+                                        Tambah Aquarium
                                     </label>
-                                    <h3 className="text-lg font-bold text-fontPrimary pb-4">
-                                        Tambah Aquarium Baru
-                                    </h3>
+                                </div>
 
-                                    {/* Form Add Start */}
-                                    <form
-                                        onSubmit={handleSubmit}
-                                        action="post"
-                                        encType="multipart/form-data"
+                                <div className="block xl:hidden">
+                                    <label
+                                        htmlFor="my-modal-6"
+                                        className="btn btn-circle btn-info"
                                     >
-                                        <div className="form-control">
-                                            <div className="input-group">
-                                                <input
-                                                    type="text"
-                                                    placeholder="Nama Aquarium"
-                                                    className="input input-bordered bg-white border-gray-400"
-                                                    id="nama_alat"
-                                                    name="nama_alat"
-                                                    onChange={handleChange}
-                                                    value={values.title}
-                                                />
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            fill="currentColor"
+                                            className="bi bi-plus"
+                                            viewBox="0 0 16 16"
+                                        >
+                                            {" "}
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                                fill="white"
+                                            ></path>{" "}
+                                        </svg>
+                                    </label>
+                                </div>
 
-                                                <button className="btn btn-square">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="32"
-                                                        height="32"
-                                                        fill="currentColor"
-                                                        className="bi bi-plus"
-                                                        viewBox="0 0 16 16"
-                                                    >
-                                                        {" "}
-                                                        <path
-                                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                                                            fill="white"
-                                                        ></path>{" "}
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            {errors.nama_alat && (
-                                                <div className="text-sm text-red-600">
-                                                    {errors.nama_alat}
+                                <input
+                                    type="checkbox"
+                                    id="my-modal-6"
+                                    className="modal-toggle"
+                                />
+                                <div className="modal modal-bottom sm:modal-middle ">
+                                    <div className="modal-box bg-white">
+                                        <label
+                                            htmlFor="my-modal-6"
+                                            className="btn btn-sm btn-circle absolute right-2 top-2"
+                                        >
+                                            ✕
+                                        </label>
+                                        <h3 className="text-lg font-bold text-fontPrimary pb-4">
+                                            Tambah Aquarium Baru
+                                        </h3>
+
+                                        {/* Form Add Start */}
+                                        <form
+                                            onSubmit={handleSubmit}
+                                            action="post"
+                                            encType="multipart/form-data"
+                                        >
+                                            <div className="form-control">
+                                                <div className="input-group">
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Nama Aquarium"
+                                                        className="input input-bordered bg-white border-gray-400"
+                                                        id="nama_alat"
+                                                        name="nama_alat"
+                                                        onChange={handleChange}
+                                                        value={values.title}
+                                                    />
+
+                                                    <button className="btn btn-square">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="32"
+                                                            height="32"
+                                                            fill="currentColor"
+                                                            className="bi bi-plus"
+                                                            viewBox="0 0 16 16"
+                                                        >
+                                                            {" "}
+                                                            <path
+                                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                                                                fill="white"
+                                                            ></path>{" "}
+                                                        </svg>
+                                                    </button>
                                                 </div>
-                                            )}
-                                        </div>
-                                    </form>
-                                    {/* Form Add End */}
+                                                {errors.nama_alat && (
+                                                    <div className="text-sm text-red-600">
+                                                        {errors.nama_alat}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </form>
+                                        {/* Form Add End */}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ) : (
+                            ""
+                        )}
 
                         {/* Modal Add End */}
                     </div>
