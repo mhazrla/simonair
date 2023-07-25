@@ -19,16 +19,15 @@ const Tabs = ({ color, sensor, avg }) => {
     const average = [];
     avg.map((item) => {
         average.push({
-            name: moment(data.date).format("DD/MM/YYYY"),
-            pH: data.ph_avg,
-            Suhu: data.suh_avg,
-            Amonia: data.amonia_avg,
-            TSS: data.tss_avg,
-            TDS: data.tds_avg,
-            Salinitas: data.salinitas_avg,
+            name: moment(item.date).format("DD/MM/YYYY"),
+            pH: item.ph_avg,
+            Suhu: item.suh_avg,
+            Amonia: item.amonia_avg,
+            TSS: item.tss_avg,
+            TDS: item.tds_avg,
+            Salinitas: item.salinitas_avg,
         });
     });
-
     useEffect(() => {
         fetchData();
         const interval = setInterval(() => {

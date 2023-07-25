@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogdataController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VoltageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,11 @@ Route::controller(DashboardController::class)->group(function () {
 Route::controller(LogdataController::class)->middleware('auth')->group(function () {
     Route::get('/log/{logdata}', 'show')->name('log');
 });
+
+Route::controller(VoltageController::class)->middleware('auth')->group(function () {
+    Route::get('/voltage/{voltage}', 'show')->name('voltage');
+});
+
 
 
 Route::get('/welcome', function () {

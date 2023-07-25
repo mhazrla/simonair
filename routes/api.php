@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\VoltageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/monitoring/{id}/{nama}/{ph}/{suhu}/{amonia}/{tss}/{tds}/{salinitas}', [DashboardController::class, 'getData']);
+Route::get('/monitoring/voltage/{id}/{nama}/{ph}/{suhu}/{amonia}/{tss}/{tds}/{salinitas}', [VoltageController::class, 'getData']);
 Route::get('/datas', [DashboardController::class, 'ApiCall']);
 Route::get('/data/{id_alat}', [DashboardController::class, 'ApiCallById']);
