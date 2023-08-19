@@ -111,7 +111,7 @@ const Tabs = ({ color, sensor, avg }) => {
                                                 <article className="overflow-hidden rounded-lg shadow-lg bg-cyan-100 ">
                                                     <div className="card-body items-center text-center">
                                                         <h2 className="card-title font-bold text-2xl">
-                                                            pH {data.ph}
+                                                            pH
                                                         </h2>
                                                         <div className="mt-4">
                                                             <Gauge

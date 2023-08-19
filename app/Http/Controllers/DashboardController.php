@@ -100,15 +100,21 @@ class DashboardController extends Controller
         $tss = $request->segment(8);
         $tds = $request->segment(9);
         $salinitas = $request->segment(10);
-        $status = 0;
+        $status = 5;
 
-        if ($amonia < 0.1) {
-            if ($ph >= 6 && $ph <= 8.5) {
-                if ($suhu >= 28 && $suhu <= 32) {
-                    if ($tds < 1000 and ($tss > 3.8 or $salinitas >= 0 && $salinitas <= 0.4)) {
-                        $status = 1;
-                    }
-                }
+//        if ($amonia < 0.1) {
+	//                   if ($ph >= 6 && $ph <= 8.5) {
+                //if ($suhu >= 28 && $suhu <= 32) {
+                  //  if ($tds < 1000 and ($tss > 3.8 or $salinitas >= 0 && $salinitas <= 0.4)) {
+                    //    $status = 1;
+                   // }
+               // }
+           // }
+       // }
+
+        if ($amonia < 0.25 && $ph >= 6 or $ph <= 8 ) {
+                if ($suhu >= 25 && $suhu <= 27) {
+                   $status = 1;
             }
         }
 
@@ -126,6 +132,8 @@ class DashboardController extends Controller
             'created_at' => \Carbon\Carbon::now()->toDateTimeString()
         ];
         Dashboard::where('id_alat', $id_alat)->firstOrFail()->update($data);
+
+
         Logdata::insert($data);
         return response()->json(['message' => 'Success'], 200);
     }

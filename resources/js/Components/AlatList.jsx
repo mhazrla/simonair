@@ -8,7 +8,7 @@ const isAlat = (alats) => {
         fetchData();
         const interval = setInterval(() => {
             fetchData(); // Fetch updated data at regular intervals
-        }, 5000);
+        }, 10000);
     }, []);
 
     const fetchData = async () => {
@@ -22,8 +22,10 @@ const isAlat = (alats) => {
     };
     var counting = 1;
     return data.map((item, i) => {
+
         var date = moment(item.updated_at).format("YYYY-MM-DD HH:mm:ss");
-        return (
+	    
+	    return (
             <div
                 className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 "
                 key={i}
