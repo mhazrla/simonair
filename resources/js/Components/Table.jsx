@@ -154,8 +154,8 @@ const isData = (log) => {
         <DataTable
             actions={actionsMemo}
             columns={columns}
-            data={rows}
             progressPending={pending}
+            data={log}
             pagination
             highlightOnHover
             pointerOnHover
@@ -169,7 +169,7 @@ const noData = () => {
 };
 
 const Table = ({ log }) => {
-    return log ? isData(log) : noData;
+    return log.data ? isData(log.data) : noData;
 };
 
 export default Table;
